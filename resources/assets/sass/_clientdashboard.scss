@@ -1,0 +1,29 @@
+
+.dashboard-body{
+	-webkit-box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.75);
+	box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.75);
+	padding:5%;	
+	background: #ffffff;
+	margin: 3%;
+}
+.data-cell{
+	padding:2%;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+#data-row{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#data-row:hover{
+	background: #FFCCFF;
+	
+}
+body{
+	background: #eeeeee;
+}
+
