@@ -1,36 +1,48 @@
-
-
 @extends('layouts.app')
 
 @section('content')
-	<div>
-		{!! Form::open(['action' => 'OrdersController@store', 'method' => 'POST']) !!}
+   
+    <div class="container">
+         
+    <div class="client-login-card-header">
+        <div class="d-flex justify-content-between">
+                <a  class="btn btn-link text-light" href="{{ route('home') }}">
+                    {{ __('Home') }}                
+                </a>
+                <a  class="btn btn-link text-light" href="{{ route('client.dashboard') }}">
+                    <strong><i class="fas fa-tachometer-alt"></i> {{ __('My Dashboard') }}</strong>
+                </a>
+        </div> 
+    </div>
+    <div class="add-blog-body">
+    	@include('includes.messages')
+        {!! Form::open(['action' => 'OrdersController@store', 'method' => 'POST','files' => true]) !!}
 	    <div class="form-group row">
-	       {{Form::label('category', 'Category', ['class'=>'col-sm-4 col-form-label'])}} 
-		   <div class="col-sm-8">
+	       {{Form::label('category', 'Category', ['class'=>'col-sm-2 col-form-label'])}} 
+		   <div class="col-sm-10">
 		    	{{Form::select(
 		    		'category',		    		
-		    		['M' => 'Mathematics',
-		    		 'A' => 'Accounting',
-		    		 'S' => 'Statistics'		    		 
+		    		['Mathematics' => 'Mathematics',
+		    		 'Accounting' => 'Accounting',
+		    		 'Statistics' => 'Statistics'		    		 
 		    		], 
-		    		 'M',
+		    		 'Mathematics',
 		    		 ['class'=>'form-control']
 		    	)}}	      		
 		    </div>
 		</div>
 		<div class="form-group row">
-	    	{{Form::label('academicLevel', 'Academic Level', ['class'=>'col-sm-4 col-form-label'])}} 
-		    <div class="col-sm-8">
+	    	{{Form::label('academicLevel', 'Academic Level', ['class'=>'col-sm-2 col-form-label'])}} 
+		    <div class="col-sm-10">
 		    	{{Form::select(
 		    		'academicLevel',		    		
-		    		['1' => 'High School',
-		    		 '2' => 'College Level',
-		    		 '3' => 'Graduate One',
-		    		 '4' => 'Masters',
-		    		 '5' => 'PhD'
+		    		['High School' => 'High School',
+		    		 'College Level' => 'College Level',
+		    		 'Graduate One' => 'Graduate One',
+		    		 'Masters' => 'Masters',
+		    		 'PhD' => 'PhD'
 		    		], 
-		    		 '0',
+		    		 'College Level',
 		    		 [
 		    		 	'class'=>'form-control',
 		    		    'onchange'=>'calculateCost()',
@@ -40,9 +52,9 @@
 		    	)}}	      		
 		    </div>
 		</div>
-		<div class="form-group row">
-	    	{{Form::label('noofquestions', 'Number Of Questions', ['class'=>'col-sm-4 col-form-label'])}} 
-		    <div class="col-sm-8">
+		<div class="form-group row"> 
+	    	{{Form::label('noofquestions', 'Number Of Questions', ['class'=>'col-sm-2 col-form-label'])}} 
+		   {{--  <div class="col-sm-10">
 		    	{{Form::select(
 		    		'noofquestions',		    		
 		    		['1' => '1 Question',
@@ -61,11 +73,15 @@
 		    		 '1',
 		    		 ['class'=>'form-control']
 		    	)}}	      		
-		    </div>
+		    </div> --}}
+		    <div class="btn round-buttons" onclick="addQuestion()">+</div>
+                      <input id="numberofquestions" type="number" name="noofquestions" min="1" value="1"style="width: 5rem; color: #9C27B0" class="m-2 form-control font-weight-bold">
+                      {{-- <div class="round-buttons">0</div> --}}
+                      <div class="btn round-buttons" onclick="minusQuestion()">-</div>
 		</div>
 		<div class="form-group row">
-	    	{{Form::label('urgency', 'Urgency', ['class'=>'col-sm-4 col-form-label'])}} 
-		    <div class="col-sm-8">
+	    	{{Form::label('urgency', 'Urgency', ['class'=>'col-sm-2 col-form-label'])}} 
+		    <div class="col-sm-10">
 		    	{{Form::select(
 		    		'urgency',		    		
 		    		['12hrs' => '12 Hours',
@@ -87,20 +103,41 @@
 		    </div>
 		</div>
 		<div class="form-group row">
-	    	{{Form::label('amount', 'Amount', ['class'=>'col-sm-4 col-form-label'])}} 
-		    <div class="col-sm-8">
+	    	{{Form::label('amount', 'Amount', ['class'=>'col-sm-2 col-form-label'])}} 
+		    <div class="col-sm-10">
 		    	<h2><span class="badge badge-warning" id="totalcost" onclick="calculateCost()">$ 107</span></h2>      		
 		    </div>
 		</div>
 		{{Form::hidden('totalcost','107',['id'=>'hiddentotalcost'])}}
-		<div class="form-group row">
-	    	{{Form::label('instructions', 'Instructions', ['class'=>'col-sm-4 col-form-label'])}} 
-		    <div class="col-sm-8">
-		    	{{Form::textarea('instructions', '', ['id'=>'article-ckeditor','class'=>'form-control'])}}	      		
-		    </div>
-		</div>           
-		{{Form::submit('Submit',['class'=>'btn btn-primary'])}}
-	{!! Form::close() !!}
-	</div>	
+			<div class="form-group row">
+		    	{{Form::label('instructions', 'Instructions', ['class'=>'col-sm-2 col-form-label'])}} 
+			    <div class="col-sm-10">
+			    	{{Form::textarea('instructions', '', ['id'=>'article-ckeditor','class'=>'form-control'])}}	      		
+			    </div>
+			</div>
+			<div class="form-group row">
+		    	{{Form::label('files', 'Upload Materials', ['class'=>'col-sm-2 col-form-label'])}} 
+			    <div class="col-sm-10">
+			    	{{Form::file('files[]', ['id'=>'file','class'=>'form-control buttons','multiple'])}}	      		
+			    </div>
+			</div>
+			<div class="form-group row">
+				<div class="col-md-10 offset-md-2">
+					{{Form::submit('Submit',['class'=>'btn btn-success btn-lg btn-block '])}}
+				</div>				
+			</div>           
+			
+		{!! Form::close() !!}
+    </div>
+        
+    </div>
+    @include('includes.js.cost_calculator')
+ @include('includes.js.ck_editor')   
+@include('includes.footer')
+
 @endsection
-{{-- <textarea>Next, get a free Cloud API key!</textarea> --}}
+
+
+
+
+

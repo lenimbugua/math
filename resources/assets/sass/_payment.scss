@@ -1,7 +1,20 @@
 .example.example1 {
-  background-color: #6772e5;
+  // background-color: #6772e5;
 }
-
+#card, .pay-card{
+  
+  height:2.5rem;
+  display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
 .example.example1 * {
   font-family: Roboto, Open Sans, Segoe UI, sans-serif;
   font-size: 16px;
@@ -10,11 +23,11 @@
 
 .example.example1 fieldset {
   margin: 0 15px 20px;
-  padding: 0;
+  padding: 2rem;
   border-style: none;
-  background-color: #7795f8;
+  background-color: #EDF4F9;
   box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 #829fff;
+    inset 0 1px 0 #D1D1D1;
   border-radius: 4px;
 }
 
@@ -23,21 +36,24 @@
   display: flex;
   -ms-flex-align: center;
   align-items: center;
-  margin-left: 15px;
+  
 }
 
-.example.example1 .row + .row {
-  border-top: 1px solid #819efc;
-}
+// .example.example1 .row + .row {
+//   border-top: 1px solid #819efc;
+// }
 
 .example.example1 label {
   width: 15%;
   min-width: 70px;
-  padding: 11px 0;
-  color: #c4f0ff;
+  margin:0;
+  color: #000000;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+.label-input{
+  margin-bottom:10px;
 }
 
 .example.example1 input, .example.example1 button {
@@ -58,16 +74,15 @@
   background: transparent !important;
 }
 
-.example.example1 .StripeElement {
-  width: 100%;
-  padding: 11px 15px 11px 0;
-}
+
 
 .example.example1 input {
   width: 100%;
-  padding: 11px 15px 11px 0;
-  color: #fff;
-  background-color: transparent;
+  
+  padding: 11px 15px 11px 15px;
+  color: #000;
+  border-radius:10px;
+  // background-color: transparent;
   -webkit-animation: 1ms void-animation-out;
 }
 
@@ -88,9 +103,9 @@
   width: calc(100% - 30px);
   height: 40px;
   margin: 40px 15px 0;
-  background-color: #f6a4eb;
+  background-color: #6772E5;
   box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 #ffb9f6;
+    inset 0 1px 0 #28A745;
   border-radius: 4px;
   color: #fff;
   font-weight: 600;

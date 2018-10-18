@@ -1,142 +1,329 @@
 @extends('layouts.app')
 
 @section('content')
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+  <div class="card">
+    <div class=" fixed-header fixed-top">
+       <div class="card-header">
+      @include('includes.navtab')
+    </div>
+    </div>
+   
+    <div class="card-body bg-greey ">
+      <div class="row no-gutter">
+        <div class="col-2">
+          @include('includes.sidebars.client_dashboard_sidebar')
         </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
-    <div class="row no-gutter">
-      <div class="col-sm-2">
-        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-          <div class="card-header">Header</div>         
-            <ul class="list-group list-group">
-              <li class="list-group-item">Cras justo odio</li>
-              <li class="list-group-item">Dapibus ac facilisis in</li>
-              <li class="list-group-item">Vestibulum at eros</li>
-            </ul>
+        <div class="col-10 pl-3">
+          @php 
+            $numOfCols= 3;                                            
+            $rowCount = 0;                          
+            $count = 0;
+            $bootstrapColWidth = 12 / $numOfCols;
+          @endphp
+          
+            @if ($orders->isEmpty()) 
+               <div class="card">
+                  <div class="card-body">
+                    <h6 class="text-danger"> There are no Orders in this catgory <a href="{{ route('orders.create') }}">Create new order?</a></h6>
+                  </div>
+                </div>       
+            @endif
+            <div class="row p-0 m-1"> 
+              
+                {{$orders->links()}}
+              
+              
+            </div>
+            
+            <div class="row">
+              @foreach($orders as $order)
+                                             
+                            @php
+                              $count++;
+
+                              session(['cost' => $order->cost]);
+                              session(['id' => $order->id]);
+                            @endphp
+
+                           
+                            <div class="card m-3" style="width:20rem">
+                              
+                                
+                                <div class="card-body">
+                                  <h5 class="card-title">
+                                    <a href="{{ url('dashboard') }}/{{$order->id}}">Order #{{$order->id}}  </a>
+                                    <a href="/orders/{{$order->id}}" class="float-right">
+                                      <i class="fas fa-pen"></i>
+                                    </a></h5>
+                                  
+                                    <div class="show-order-item mb-3">
+                                      <div class="row">
+                                        <div class="col-4">
+                                         <small class="item-title">Category</small>
+                                      </div>
+                                      <div class="col-8">{{$order->category}}<br></div>
+                                      </div>                                      
+                                    </div>
+                                    <div class="show-order-item mb-3">
+                                      <div class="row">
+                                        <div class="col-4">
+                                         <small class="item-title">Created On</small>
+                                      </div>
+                                      <div class="col-8">{{$order->created_at}}<br></div>
+                                      </div>
+                                    </div>
+                                    <div class="show-order-item mb-3">
+                                      <div class="row">
+                                        <div class="col-4">
+                                         <small class="item-title">Deadline</small>
+                                      </div>
+                                      <div class="col-8">{{$order->urgency}}<br></div>
+                                      </div>
+                                    </div>
+                                    <div class="show-order-item mb-3">
+                                      <div class="row">
+                                        <div class="col-4">
+                                         <small class="item-title">Price</small>
+                                      </div>
+                                      <div class="col-8">{{$order->cost}}<br></div>
+                                      </div>
+                                    </div>
+                                    <div class=" show-order-item mb-3">
+                                      <div class="row">
+                                          <div class="col-4">
+                                           <small class="item-title">Problems</small>
+                                        </div>
+                                        <div class="col-8">
+                                          {{$order->number_of_questions}}
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="show-order-item mb-3">
+                                      <div class="row">
+                                        <div class="col-4">
+                                         <small class="item-title">Academic Level</small>
+                                      </div>
+                                      <div class="col-8">{{$order->academic_level}}<br></div>
+                                      </div>
+                                    </div>
+                                    
+                                  
+                                  @if($order->progress==100)
+                                    <div class="show-order-item mb-3">
+                                        <small class="item-title">Progress</small>
+                                        <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="{!!$order->progress!!}" aria-valuemin="0" aria-valuemax="100" style="width: {!!$order->progress!!}%">
+                                          {!!$order->progress!!}%
+                                        </div>
+                                    </div>
+                                    Complete please download files below
+                                    </div>
+                                    
+                                  
+                                  @else
+                                  <div class="show-order-item mb-3">
+                                      <small class="item-title">Progress</small><br>
+                                      <div class="progress">
+                                    <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" aria-valuenow="{!!$order->progress!!}" aria-valuemin="0" aria-valuemax="100" style="width: {!!$order->progress!!}%">
+                                      {!!$order->progress!!}%
+                                    </div>
+
+                                  </div>
+                                      In progress
+                                  </div>
+                                  
+                                  @endif
+                                  
+                                </div>
+                                <div class="card-footer">
+                                  <div class="row">
+                                    <div class="col">
+                                    @if($order->progress == 100)
+                                         @include('includes.modals.client_dashboard_download_modal')
+                                    @endif
+                                 </div>
+                                 <div class="col">
+                                    @if($order->amount_payed ==0)
+                                    @include('includes.modals.client_dashboard_payment_modal')
+                                  @endif
+                                 </div>
+                                  </div>
+                                 
+                               </div>
+                               
+                               
+                                   
+                                  
+                                   
+                                 
+                              </div>
+                            
+                         
+                         @php
+                           $rowCount++
+                         @endphp                         
+                            
+                            @if($rowCount % $numOfCols == 0)
+                                </div><div class="row">
+                            @endif
+                        @endforeach 
+                        </div> {{-- {{$orders->links()}}  --}}
+             
           
         </div>
+        
       </div>
-      <div class="col-sm-10">
-            <div class="dashboard-container">   
-                @component('components.who')
-                    
-                @endcomponent
-                <div class="dashboard-body">                    
-                    <div class="dashboard-contents">
-                      <div class="dashboard-heading">
-                        <div class="row no-gutter">
-                          <div class="col-sm-1">
-                            <div class="data-cell"></div>
-                          </div>
-                          <div class="col-sm-2">
-                            <div class="data-cell"><div class="buttons">Category</div></div>
-                          </div>
-                          <div class="col-sm-2">
-                            <div class="data-cell">
-                              <div class="buttons">Academic Level</div>
-                            </div>                            
-                          </div>
-                          <div class="col-sm-2">
-                            <div class="data-cell">
-                              <div class="buttons">Deadline</div>
-                            </div>                            
-                          </div>
-                          <div class="col-sm-3">
-                            <div class="data-cell">
-                              <div class="buttons">Instructions</div>
-                            </div>                            
-                          </div>
-                          <div class="col-sm-2">
-                            <div class="data-cell">
-                              <div class="buttons">Date Created</div>
-                            </div>                            
-                          </div>                     
-                        </div>
-                      </div>
-                      <div class="dashboard-data">
-                        <?php
-                          $count = 0;
-                        ?>
-                        @foreach($orders as $order)
-                            <?php
-                              $count++;
-                            ?>
-                            <div id="data-row" class="row no-gutter">
-                                <div class="col-sm-1">{{$count}}</div>
-                                <div class="col-sm-2">
-                                  <div class="data-cell">
-                                    <a href="orders/{{$order->id}}">{{$order->category}}</a>
-                                  </div>
-                                </div>
-                                
-                                
-                                <div class="col-sm-2">
-                                  <div class="data-cell">
-                                    <a href="orders/{{$order->id}}">{{$order->academic_level}}</a>
-                                  </div>
-                                </div>
-                                
-                                 <div class="col-sm-2">
-                                  <div class="data-cell">
-                                    <a href="orders/{{$order->id}}">{{$order->urgency}}</a>
-                                  </div>
-                                </div>
-                                    
-                                <div class="col-sm-3">
-                                  <div class="data-cell">
-                                    <a href="orders/{{$order->id}}">{!!$order->instructions!!}</a>
-                                  </div>
-                                </div>
-                                    
-                                <div class="col-sm-2">
-                                  <div class="data-cell">
-                                   <a href="orders/{{$order->id}}">{{$order->created_at}}</a>
-                                  </div>
-                                </div>                                                   
-                            </div>
-                        @endforeach 
-                        {{-- {{$orders->links()}}  --}}                       
-                      </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-   
-      
     </div>
-    
+  </div>      
+          {{-- <div class="dashboard-container"> 
+            <div class="dashboard-body">
+              @include('includes.navbar4')               
+              <div class="row no-gutter">
+                <div class="col-2" >
+                  @include('includes.sidebars.client_dashboard_sidebar')
+                </div>
+                <div class="col-10" >                                    
+                    <div class="dashboard-contents">
+                     
+                        <div class="dashboard-data">                        
+                        @php 
+                          $numOfCols= 3;                                            
+                          $rowCount = 0;                          
+                          $count = 0;
+                          $bootstrapColWidth = 12 / $numOfCols;
+                        @endphp
+                        <div class="row no-gutter">                   
+                             @if ($orders->isEmpty()) 
+                             <div class="card">
+                                <div class="card-body">
+                                  <h6 class="text-danger"> There are no Orders in this catgory</h6>
+                                </div>
+                              </div>
+                               
+                         
+                          @endif 
+                          <div class="card-deck">
+                        @foreach($orders as $order)
+                                             
+                            @php
+                              $count++;
+
+                              session(['cost' => $order->cost]);
+                              session(['id' => $order->id]);
+                            @endphp
+
+                          <div class="col-md-4"> 
+                            <div class="card mb-3" style="width: 18rem;">
+                              <div class="pl-card-header">
+                                
+                              </div>
+                                
+                                <div class="card-body">
+                                  <h5 class="card-title">
+                                    <a href="{{ url('dashboard') }}/{{$order->id}}">Order #{{$order->id}}  </a>
+                                    <a href="/orders/{{$order->id}}" class="float-right">
+                                      <i class="fas fa-pen"></i>
+                                    </a></h5>
+                                  
+                                    <div class="show-order-item mb-3">
+                                      <small class="item-title">Category</small><br>
+                                      {{$order->category}}<br>
+                                    </div>
+                                    <div class="show-order-item mb-3">
+                                      <small class="item-title">Created On</small><br>
+                                      {{$order->created_at}}<br>
+                                    </div>
+                                    <div class="show-order-item mb-3">
+                                      <small class="item-title">Deadline</small><br>
+                                      {{$order->urgency}}<br>
+                                    </div>
+                                    <div class="show-order-item mb-3">
+                                      <small class="item-title">Price</small><br>
+                                      {{$order->cost}}<br>
+                                    </div>
+                                    <div class="show-order-item mb-3">
+                                      <small class="item-title">Problems</small><br>
+                                      {{$order->number_of_questions}}<br>
+                                    </div>
+                                    <div class="show-order-item mb-3">
+                                      <small class="item-title">Academic Level</small><br>
+                                      {{$order->academic_level}}<br>
+                                    </div>
+                                    
+                                  <div class="show-order-item mb-3">
+                                      <small class="item-title">Progress</small><br>
+                                      {{$order->academic_level}}<br>
+                                  </div>
+                                  @if($order->progress==100)
+                                    <div class="show-order-item mb-3">
+                                        <small class="item-title">Progress</small><br>
+                                        <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="{!!$order->progress!!}" aria-valuemin="0" aria-valuemax="100" style="width: {!!$order->progress!!}%">
+                                          {!!$order->progress!!}%
+                                        </div>
+                                    </div>
+                                    Your paper is ready please download files below
+                                    </div>
+                                    
+                                  
+                                  @else
+                                  <div class="show-order-item mb-3">
+                                      <small class="item-title">Progress</small><br>
+                                      <div class="progress">
+                                    <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" aria-valuenow="{!!$order->progress!!}" aria-valuemin="0" aria-valuemax="100" style="width: {!!$order->progress!!}%">
+                                      {!!$order->progress!!}%
+                                    </div>
+                                  </div>
+                                      We are working on your order, it is at {!!$order->progress!!}%
+                                  </div>
+                                  
+                                  @endif
+                                  
+                                </div>
+                                <div class="card-footer">
+                                  <div class="row">
+                                    <div class="col">
+                                    @if($order->progress == 100)
+                                         @include('includes.modals.client_dashboard_download_modal')
+                                    @endif
+                                 </div>
+                                 <div class="col">
+                                    @if($order->amount_payed ==0)
+                                    @include('includes.modals.client_dashboard_payment_modal')
+                                  @endif
+                                 </div>
+                                  </div>
+                                 
+                               </div>
+                               
+                               
+                                   
+                                  
+                                   
+                                 
+                              </div>
+                            
+                         </div>
+                         @php
+                           $rowCount++
+                         @endphp                         
+                            
+                            @if($rowCount % $numOfCols == 0)
+                                </div><div class="row">
+                            @endif
+                        @endforeach 
+                         {{$orders->links()}}   
+                        </div>                     
+                      </div> 
+                    </div>
+                  </div>
+                </div>
+              </div>             
+            </div>
+          </div> --}}
+        
+    @include('includes.footer')
+    @include('includes.js.payment')
         
 
 @endsection

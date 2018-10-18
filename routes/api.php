@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+
+
+	Route::get('clientordermessages/{id?}', 'MessageController@index')->name('client.ordermessages');
+	Route::get('/orders/{order}/messages', 'MessageController@index1');
+    Route::post('/orders/{order}/messages', 'MessageController@store');
+

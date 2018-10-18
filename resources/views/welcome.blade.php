@@ -1,96 +1,55 @@
 @extends('layouts.app')
 
 @section('content')
-    
-    <div class="banner">
-      <div class="top-bar"> <!-- start top bar -->        
-        <div class="row no-gutter">      <!-- start row -->
-          <div class="col-sm-4">
-            <div class="logo-wrapper">
-              <a href="">
-                <div class="logo">          
-                </div>
-              </a>
-            </div>                        
-          </div> 
+
+
+
+    <div class="banner-section">    
+       @include('includes.navbar')
+         
+        <div class="banner" >
+
+
+      <div class="typing">
+        <div class="container">
+          <div class="row">
+            <p><h1 class="text-light">Welcome to Pronto Labs</h1><br></p>
+            
+          </div>
+          <div class="row">
+            <p><h1 class="text-light">Assignment Services</h1></p>
+          </div>
+        <div class="row">
+          <h3 class="text-light">We Help  &nbsp; &nbsp; </h3>
+          <h3>
+            <div id="typed" class="text-light">
+              
+            </div>
+            <div id="typed-strings" hidden>
+                <p>Students do their <strong>Math</strong> Assignment.</p>
+                <p>Students do their <strong>Math</strong> Assignment.</p>
+                <p>Anyone With <strong>Accounting or Statistics </strong>homework.</p>
+            </div>
+
+            <h3 class="text-success">|</h3>
+          </h3>
           
-          <div class="col-sm-8">
-            <div class="navigating-bar">
-              <ul>
-                <li><a href="#home">0704241274</a></li>
-                <li><a href="#news">chat</a></li>
-                <li class="drpdown">
-                  <a href="#" class="dropbtn">Services</a>
-                  <div class="dropdown-content">                    
-                      <a href="#">Math</a>
-                      <a href="#">Stat</a>
-                      <a href="#">Accounting</a>                    
-                  </div>
-                </li>
-                <li><a href="#home">Support</a></li>
-                <li><a href="#news">About</a></li>
-                @guest
-                    <li>
-                        <a href="{{ route('login') }}">{{ __('Login') }}</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('register') }}">{{ __('Register') }}</a>
-                    </li>
-                @else
-                    <div id="drpdown-wrapper">
-                        <li class="drpdown">
-                        <a href="javascript:void(0)" class="dropbtn">
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
-
-                        <div class="dropdown-content">
-                            <a  href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                    </div>
-                    
-                @endguest
-            </ul>
-            </div>
             
-          </div>
-                    
-        </div>              
-    </div>
-      <div class="banner-puch-line">
-        <div class="row no-gutter">
-          <div class="col-sm">
-            <div id="table">
-              <div id="centeralign">
-                <h1 class="anim-title">Welcome To Pronto Essays </h1>
-                @component('components.who')
-                    
-                @endcomponent
-              </div>
-              <h1>
-              <a href="" class="typewrite" data-period="2000" data-type='[ "Hi, Im Math Holic.", "Math Help.", "Statistics Master.", "Accounting Pro." ]'>
-                <span class="wrap"></span>
-              </a>
-            </h1>
-            </div>
             
-          </div>
-          <div class="col-sm">
-            
-          </div>
-
+          </div> 
+          <a class="btn btn-success btn-lg" href="{{'/orders/create'}}" role="button">
+              Order Now
+            </a>
         </div>
+        </div>
+        
                
       </div> 
-    </div>     
+       </div>
+      
+    
+    </div>
+        
       <!--  -->
     <div class="banner-bottom-ribbon">
       <h3>
@@ -112,6 +71,21 @@
               <div class="total-cost">
                 <h3 id="totalcost">$ 00.00</h3>
               </div>
+               <div class="calculator-options">
+                <div class="academic-level">
+                  <form>
+                    Number of Questions
+                    <div class="row">
+                      
+                      <div class="btn round-buttons" onclick="addQuestion()">+</div>
+                      <input id="numberofquestions" type="number" name="" min="1" value="1"style="width: 5rem; color: #9C27B0" class="m-2 form-control font-weight-bold">
+                      {{-- <div class="round-buttons">0</div> --}}
+                      <div class="btn round-buttons" onclick="minusQuestion()">-</div>
+                    </div>                                       
+                                 
+                  </form>
+                </div>
+              </div>
               <div class="calculator-options">
                 <div class="academic-level">
                   <form>                                       
@@ -125,24 +99,7 @@
                   </form>
                 </div>
               </div>
-              <div class="calculator-options">
-                <div class="academic-level">
-                  <form>                                       
-                    <select class="form-control" >
-                      
-                      <option selected="selected">1 pages || Aprox 275 Words</option>
-                      <option>2 pages || Aprox 550 Words</option>
-                      <option>3 pages || Aprox 275 Words</option>
-                      <option>4 pages || Aprox 825 Words</option>
-                      <option>5 pages || Aprox 1100 Words</option>
-                      <option>6 pages || Aprox 1375 Words</option>
-                      <option>7 pages || Aprox 1650 Words</option>
-                      <option>8 pages || Aprox 1925 Words</option>
-                      <option>9 pages || Aprox 2200 Words</option>
-                    </select>              
-                  </form>
-                </div>
-              </div>
+             
               <div class="calculator-options">
                 <div class="academic-level">
                   <form>                                       
@@ -159,7 +116,7 @@
                   </form>
                 </div>
               </div>
-              <a class="btn btn-success btn-lg btn-block" href="{{'/orders/create'}}" role="button">
+              <a class="btn btn-lg btn-block buttons" style="background: #02A9F3" href="{{'/orders/create'}}" role="button">
                 Continue          
               </a>
               {{-- <button type="button" class="btn btn-success btn-lg btn-block" onclick="calculateCost()">Continue</button> --}}
@@ -297,102 +254,11 @@
         </div>
       </div>           
     </div>
-    <div class="end">
-        <div class="row no-gutter">
-          <div class="col-sm">
-            <div class="end-punchline">
-              
-            </div>
-          </div>
-          <div class="col-sm">
-            <div class="end-punchline">
-              <div class="punch-line-header">
-                <h4> Services</h4>
-              </div>
-              <div class="punch-line-content">
-                <p>
-                  Math<br/>
-                  Statistics<br/>
-                  Finance<br/>
-                  Economics<br/>
-                </p>            
-              </div>
-            </div>
-          </div>
-          <div class="col-sm">
-            <div class="end-punchline">
-              <div class="punch-line-header">
-                <h4> Company</h4>
-              </div>
-              <div class="punch-line-content">
-                <p>
-                  About<br/>
-                  Contact<br/>
-                  Terms of service<br/>
-                  privacy policy<br/>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm">
-            <div class="end-punchline">
-              <div class="punch-line-header">
-                <h4> Support</h4>
-              </div>
-              <div class="punch-line-content">
-                <p>
-                  Chat<br/>
-                  Email<br/>
-                  Price Calculator<br/>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm">
-            <div class="end-punchline">
-              <div class="punch-line-header">
-                <h4> Join Us</h4>
-              </div>
-              <div class="punch-line-content">
-                <p>
-                  Register<br/>
-                  Login<br/>
-                  Get Your Quote<br>
-                </p>
-              </div>              
-            </div>
-          </div>
-          <div class="col-sm">
-            <div class="end-punchline">
-              
-            </div>
-          </div>
-        </div>
-        <div class="row no-gutter">
-          <div class="end-footer">
-            <div class="row">
-              <div class="col-sm">
-              <div class="end-footer-content">
-                <p>
-                  
-                </p>
-              </div>
-            </div>
-            <div class="col-sm">
-              <div class="end-footer-content">
-                <p>
-                  © 2018 Onwards Mathholic Inc. All rights reserved.
-                  *Promotional pricing is for the first term only and regular rates apply upon renewal. 30-Day Money-Back Guarantee.
-                </p>
-              </div>
-            </div>
-            </div>            
-          </div>
-        </div> 
-          
-    </div>
-
-    
+    @include('includes.footer')
+   
+</div>
+    @include('includes.js.cost_calculator') 
+    @include('includes.js.typed')
 @endsection
 
 

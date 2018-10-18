@@ -23,7 +23,7 @@ class CreateOrdersTable extends Migration
             $table->integer('progress');
             $table->string('urgency');
             $table->text('instructions');
-            $table->integer('user_id');
+            $table->integer('user_id');            
             $table->timestamps();
         });
     }

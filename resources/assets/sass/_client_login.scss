@@ -1,31 +1,22 @@
 .client-login-card-header{	
 	background: #47a44b;
-	background: linear-gradient(to right,#8878b8, #7e22a4);
+	background: linear-gradient(to right, #1537AA, #02AAF3);
 	color: #ffffff;
 	opacity: 1;
 	border-radius: 5px;
-	margin: -1.5rem 0 3rem 0;
+	margin: 0 0 3rem 0;
 	height: 3rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	
 	-webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
 box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
 }
 #login-card-wrapper{
-	background: url(38.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-	background-repeat: no-repeat;
+	
+	margin-bottom:10rem;
 }
 #register-card-wrapper{
-	background: url(7.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-	background-repeat: no-repeat;
+	background: #EDF4F9; 
+  
+	margin-bottom:10rem;
 }

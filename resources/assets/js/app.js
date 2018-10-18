@@ -22,8 +22,56 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+// Vue.component('chat-messages', require('./components/ChatMessages.vue'));
+// Vue.component('chat-form', require('./components/ChatForm.vue'));
 
-const app = new Vue({
-    el: '#app'
-});
+// const app = new Vue({
+//     el: '#app',
+
+//     data: {
+//         messages: [],
+//         message:'',
+//         userType:'',
+//         orderId:7
+       
+//     },
+
+//     created() {    	
+//         this.fetchMessages();        
+//         Echo.private('chat7')
+// 		  .listen('MessageSent', (e) => {
+// 		  	console.log('listening');
+// 		    this.messages.push({
+// 		      message: e.message.message
+// 		    }); 
+// 		});
+//     },
+
+//     methods: {
+//         fetchMessages() {
+//             axios.get(`/messages/7`)
+//             	.then(response => {
+// 	            	console.log(response.data);
+// 	                this.messages = response.data;
+//             	})
+//             	.catch(error => console.log(error.response.data));           
+//         },
+
+//         addMessage(message, userType) {        	
+//             this.messages.push(message);
+//             this.message = message.message;
+//             this.userType =message.userType
+
+//             console.log(this.userType);
+//         	console.log(this.message);
+
+//             axios.post('/messages', {message:this.message, userType:this.userType})
+//             		.then(response => {
+// 		              	console.log(response.data);
+// 		            })
+// 		            .catch(error => console.log(error.response.data));
+//         }
+//     }
+// });
+
+
