@@ -561,32 +561,9 @@ throw new Error("Module build failed: Error: ENOENT: no such file or directory, 
 /***/ }),
 
 /***/ 65:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {
-        console.log('Component mounted.');
-    }
-});
+throw new Error("Module build failed: ReferenceError: Unknown plugin \"transform-object-rest-spread\" specified in \"base\" at 0, attempted to resolve relative to \"C:\\\\xampp\\\\htdocs\\\\math\\\\resources\\\\assets\\\\js\\\\components\"\n    at C:\\xampp\\htdocs\\math\\node_modules\\babel-core\\lib\\transformation\\file\\options\\option-manager.js:180:17\n    at Array.map (<anonymous>)\n    at Function.normalisePlugins (C:\\xampp\\htdocs\\math\\node_modules\\babel-core\\lib\\transformation\\file\\options\\option-manager.js:158:20)\n    at OptionManager.mergeOptions (C:\\xampp\\htdocs\\math\\node_modules\\babel-core\\lib\\transformation\\file\\options\\option-manager.js:234:36)\n    at OptionManager.init (C:\\xampp\\htdocs\\math\\node_modules\\babel-core\\lib\\transformation\\file\\options\\option-manager.js:368:12)\n    at File.initOptions (C:\\xampp\\htdocs\\math\\node_modules\\babel-core\\lib\\transformation\\file\\index.js:212:65)\n    at new File (C:\\xampp\\htdocs\\math\\node_modules\\babel-core\\lib\\transformation\\file\\index.js:135:24)\n    at Pipeline.transform (C:\\xampp\\htdocs\\math\\node_modules\\babel-core\\lib\\transformation\\pipeline.js:46:16)\n    at transpile (C:\\xampp\\htdocs\\math\\node_modules\\babel-loader\\lib\\index.js:50:20)\n    at C:\\xampp\\htdocs\\math\\node_modules\\babel-loader\\lib\\fs-cache.js:118:18\n    at ReadFileContext.callback (C:\\xampp\\htdocs\\math\\node_modules\\babel-loader\\lib\\fs-cache.js:31:21)\n    at FSReqWrap.readFileAfterOpen [as oncomplete] (fs.js:420:13)");
 
 /***/ }),
 
