@@ -1,0 +1,38 @@
+.rotate {
+
+/* Safari */
+-webkit-transform: rotate(-45deg);
+
+/* Firefox */
+-moz-transform: rotate(-45deg);
+
+/* IE */
+-ms-transform: rotate(-45deg);
+
+/* Opera */
+-o-transform: rotate(-45deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+}
+
+.contacts{
+	padding: 1rem 6rem 1rem 10rem;
+}
+
+ /* Set the size of the div element that contains the map */
+.map-banner-background{
+	
+	height: 15rem;
+	width: 100%;
+
+	background: url(images/map.png)no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+	
+	
+	
+}

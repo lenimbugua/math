@@ -1,0 +1,33 @@
+.message{
+	max-width:60%;
+	min-width:15%;
+	
+}
+.client-message{
+	background:#D7D9D6;
+}
+.admin-message{
+	background:#CADCC2;
+}
+.message-wrapper{
+	width:70%;
+	// max-height:80vh;
+	// overflow-y: scroll;
+}
+.messaging-form{
+	width:100vw;
+	height:7rem;
+	padding:1rem 25% 1rem 25%;
+}
+.fixed-header{
+	background:#CADCC2;
+}
+.messaging-form{
+	background:#C4D5BC;
+}
+.message-body{
+	background: url(images/chat3.jpg);
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+}

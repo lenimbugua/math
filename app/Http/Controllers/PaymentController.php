@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Order;
+use Auth;
 
 class PaymentController extends Controller
 {
@@ -33,11 +34,11 @@ class PaymentController extends Controller
 		 $order->amount_payed=$cost;
 		 $order->save();
 
-		 // 	$order->payment_id = $charge->id;
+		 	$orders = Auth::user()->orders();
 
 		 // 	Auth::user()->orders()->save($order);
 
-			return redirect('success')->with('success', 'You have successfully paid for the order');
+			return redirect()->route('client.dashboard')->with(['success'=> 'You have successfully paid for the order','orders'=>$orders]);
 		 } catch (Exception $e) {
 		 	return redirect('payment')->with('error', $e->getMessage);
 		 } 

@@ -1,0 +1,62 @@
+.pl-card{
+	-webkit-box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.75);
+	box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.75);
+	background: #FFFFFF;
+	border-radius: 5px;
+	padding: 4px;
+	margin: 2%;
+    
+}
+.pl-card-header{
+	
+	background: url(images/stat3.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.pl-card-headings{
+	background: rgba(237, 244, 249, 0.9);
+	
+}
+.order-number{
+	height:3rem;
+	width:3rem;
+	border: 1px solid #DFDFDF;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 5px;
+}
+.pl-card-buttons{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #3575D3;
+	border-radius: 50%;
+	padding: 1rem;
+	height: 2rem;
+	width: 2rem;
+	-webkit-box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.75);
+	box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.75);
+}
+.instrunction-button{
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.37);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.37);
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.37);
+	
+    font-size: .75rem;    
+    line-height: 1.428571;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    
+    width:35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: #3575D3;
+    color: #ffffff;
+}

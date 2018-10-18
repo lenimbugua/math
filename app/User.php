@@ -18,6 +18,9 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+    protected $dispatchesEvents = [
+        'created'=> Events\NewUser::class,
+    ];
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -29,5 +32,8 @@ class User extends Authenticatable
 
     public function orders(){
         return $this->hasMany('App\Order');
+    }
+    public function messages(){
+        return $this->hasMany('App\Message');
     }
 }

@@ -8,55 +8,43 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Pronto Labs</title>
 
     <!-- Scripts -->
-     <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://js.stripe.com/v3/"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="sweetalert2.all.min.js"></script>
+    
     <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    
+
    
-    {{-- <script type="text/javascript">
-        var dataUri = "{{ url('orders')}}";
-    </script> --}}
+   <script src="{{ asset('js/app.js') }}"></script>  
 
     <!-- Fonts -->
+    
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
-   @include('includes.messages')
-    @yield('content') 
 
-    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-    <script>
-        CKEDITOR.replace( 'article-ckeditor' );
-    </script> 
-    <script >
-        function calculateCost(){
-        // y = 88x +19;
-        let y = 0;
-        let e = document.getElementById('academiclevel');   
-        let x = e.options[e.selectedIndex].value;
-
-        if (x==='0'){
-            document.getElementById('totalcost').innerHTML = "$ 00.00";
-        }
-        else{
-           
-            y = (88*x) + 19;
-            console.log( '$ '+y);
-            document.getElementById('totalcost').innerHTML = "$ "+y+".00";
-            document.getElementById("hiddentotalcost").value = y;
-        }
-        
-
-}
-    </script>
+<body >
+    <div id="app">
+        {{-- @include('includes.messages') --}}
+        @yield('content')
+    </div>
+   
+  
+   
+  @include('includes.js.tawk_to') 
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  @include('includes.js.scroll_spy')
+  
+  
+    
+    
 </body>
 </html>

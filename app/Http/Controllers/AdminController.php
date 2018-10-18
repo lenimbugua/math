@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Order;
+use App\File;
+use JavaScript;
 
 class AdminController extends Controller
 {
@@ -25,10 +27,37 @@ class AdminController extends Controller
      */
     public function index()
     {
+        
         // $orders = Order::all();
-        $orders = Order::orderBy('created_at', 'desc') ->paginate(2);
-        //return $orders;
-        return view('admin')->with('orders', $orders);
+        $orders = Order::orderBy('created_at', 'desc') ->paginate(15);
+        $files = File::all();
+        JavaScript::put([
+        
+        'orders' => $orders,
+        
+    ]);
+
+        //return $orders and files;
+        return view('admin')->with(['orders'=>$orders, 'files'=>$files]);
+        
+    }
+
+     /**
+     * Show grid layout order dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+
+    public function gridLayout()
+    {
+        
+        // $orders = Order::all();
+        $orders = Order::orderBy('created_at', 'desc')->paginate(10);
+        $files = File::all();
+       
+
+        //return $orders and files;
+        return view('pages.admin.orders.grid_dashboard')->with(['orders'=>$orders, 'files'=>$files]);
         
     }
 
@@ -79,7 +108,21 @@ class AdminController extends Controller
     public function show($id)
     {
         $order = Order::find($id);
-        return view('pages.clients.orders.show')->with('order', $order);
+         $files = File::all();
+        return view('pages.admin.orders.show.show')->with(['order'=> $order,'files'=>$files]);
+    }
+    /**
+     * Display Files for the specified order.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showFiles($id)
+    {
+        
+        
+         $files = File::where('order_id','=',$id)->get();
+        return view('pages.admin.orders.show.files')->with(['id'=> $id,'files'=>$files]);
     }
 
     /**
@@ -109,23 +152,54 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this -> validate($request,[
-            'category'=>'required',
-            'academicLevel'=>'required',
-            'urgency'=>'required',
-            'instructions'=>'required',
-        ]);
-
-        //make order
+        
         $order = Order::find($id);
-        $order->category=$request->input('category');
-        $order->academic_level=$request->input('academicLevel');
-        $order->urgency=$request->input('urgency');
-        $order->instructions=$request->input('instructions');
+        $orders = Order::orderBy('created_at', 'desc') ->paginate(4);
+        //check if the user uploaded files
+        if ($request->input('progress')==100 and !$request->hasFile('files')) {
+            // return view('admin')->with(['orders'=>$orders, 'error'=>"please upload files"]);
+            return 'no';
+        }
+
+        
+        //store file
+
+        if ($request->hasFile('files')) { 
+           foreach ($request->file('files') as $file) {
+            
+                $filesize=$file->getClientSize();            
+                $filename = $file->getClientOriginalName();
+                $path = $file->store('public/fullfilled');                
+                
+                $file = new File;
+                $file->path =$path;
+                $file->size =$filesize;
+                $file->original_name=$filename;
+                $file->question_or_answer='answer';
+                $file->order_id =$order->id;
+                $file->save();
+            }
+            
+        }
+
+        
+        $order->progress=$request->input('progress');
         $order->save();
 
-        //redirect
-        return redirect('/orders')->with('success', 'Order Updated');
+
+        
+        // $orders = Order::all();
+        $orders = Order::orderBy('created_at', 'desc') ->paginate(4);
+        $files = File::orderBy('created_at', 'desc');
+
+        //return $orders and files;
+        return view('pages.admin.orders.grid_dashboard')->with(['orders'=> $orders, 'files'=>$files]);
+    
+    }
+
+    public function updateProgress(Request $request, $id)
+    {
+        
     }
 
     /**

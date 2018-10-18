@@ -1,17 +1,22 @@
+
+
 @extends('layouts.app')
 
 @section('content')
-	{!! Form::open(['action' => ['OrdersController@update', $order->id], 'method' => 'POST']) !!}
+@include('includes.navbar2')
+	<div class="container">
+		<div class="order-page">
+		{!! Form::open(['action' => ['OrdersController@update', $orders->id], 'method' => 'POST','files' => true]) !!}
 	    <div class="form-group row">
 	       {{Form::label('category', 'Category', ['class'=>'col-sm-4 col-form-label'])}} 
 		   <div class="col-sm-8">
 		    	{{Form::select(
 		    		'category',		    		
-		    		['M' => 'Mathematics',
-		    		 'A' => 'Accounting',
-		    		 'S' => 'Statistics'		    		 
+		    		['Mathematics' => 'Mathematics',
+		    		 'Accounting' => 'Accounting',
+		    		 'Statistics' => 'Statistics'		    		 
 		    		], 
-		    		 'M',
+		    		 $orders->category,
 		    		 ['class'=>'form-control']
 		    	)}}	      		
 		    </div>
@@ -21,13 +26,41 @@
 		    <div class="col-sm-8">
 		    	{{Form::select(
 		    		'academicLevel',		    		
-		    		['H' => 'High School',
-		    		 'C' => 'Collage Level',
-		    		 'G' => 'Graduate One',
-		    		 'M' => 'Masters',
-		    		 'P' => 'PhD'
+		    		['High School' => 'High School',
+		    		 'College Level' => 'College Level',
+		    		 'Graduate One' => 'Graduate One',
+		    		 'Masters' => 'Masters',
+		    		 'PhD' => 'PhD'
 		    		], 
-		    		 'H',
+		    		 $orders->academic_level,
+		    		 [
+		    		 	'class'=>'form-control',
+		    		    'onchange'=>'calculateCost()',
+		    		    'id'=>'academiclevel'
+		    		]
+		    		 
+		    	)}}	      		
+		    </div>
+		</div>
+		<div class="form-group row"> 
+	    	{{Form::label('noofquestions', 'Number Of Questions', ['class'=>'col-sm-4 col-form-label'])}} 
+		    <div class="col-sm-8">
+		    	{{Form::select(
+		    		'noofquestions',		    		
+		    		['1' => '1 Question',
+		    		 '2' => '2 Questions',
+		    		 '3' => '3 Questions',
+		    		 '4' => '4 Questions',
+		    		 '5' => '5 Questions',
+		    		 '6' => '6 Questions',
+		    		 '7' => '7 Questions',
+		    		 '8' => '8 Questions',
+		    		 '9' => '9 Questions',
+		    		 '10' => '10 Questions',
+		    		 '11' => '11 Questions',
+		    		 '12' => '12 Questions'
+		    		], 
+		    		 'number_of_questions',
 		    		 ['class'=>'form-control']
 		    	)}}	      		
 		    </div>
@@ -50,18 +83,42 @@
 		    		 '10days' => '10 Days',
 		    		 'above10' => 'Above 10 Days'
 		    		], 
-		    		 '3days',
+		    		 $orders->urgency,
 		    		 ['class'=>'form-control']
 		    	)}}	      		
 		    </div>
 		</div>
 		<div class="form-group row">
-	    	{{Form::label('instructions', 'Instructions', ['class'=>'col-sm-4 col-form-label'])}} 
+	    	{{Form::label('amount', 'Amount', ['class'=>'col-sm-4 col-form-label'])}} 
 		    <div class="col-sm-8">
-		    	{{Form::textarea('instructions', $order->instructions, ['id'=>'article-ckeditor','class'=>'form-control'])}}	      		
+		    	<h2><span class="badge badge-warning" id="totalcost" onclick="calculateCost()">${{$orders->cost}}</span></h2>      		
 		    </div>
-		</div> 
-		{{Form::hidden('_method', 'PUT')}}          
-		{{Form::submit('Submit',['class'=>'btn btn-primary'])}}
-	{!! Form::close() !!}
+		</div>
+		{{Form::hidden('totalcost','107',['id'=>'hiddentotalcost'])}}
+			<div class="form-group row">
+		    	{{Form::label('instructions', 'Instructions', ['class'=>'col-sm-4 col-form-label'])}} 
+			    <div class="col-sm-8">
+			    	{{Form::textarea('instructions', $orders->instructions, ['id'=>'article-ckeditor','class'=>'form-control'])}}	      		
+			    </div>
+			</div>
+			<div class="form-group row">
+		    	{{Form::label('files', 'Upload Additional Files', ['class'=>'col-sm-4 col-form-label'])}} 
+			    <div class="col-sm-8">
+			    	{{Form::file('files[]', ['id'=>'file','class'=>'form-control buttons','multiple'])}}	      		
+			    </div>
+			</div>
+			{{Form::hidden('_method', 'PUT')}}            
+			<div class="form-group row">
+				<div class="col-md-8 offset-md-4">
+					{{Form::submit('Submit',['class'=>'btn btn-success btn-lg btn-block '])}}
+				</div>				
+			</div> 
+		{!! Form::close() !!}
+	</div>
+	</div>
+	@include('includes.footer')
+	@include('includes.js.ck_editor')		
 @endsection
+
+
+
