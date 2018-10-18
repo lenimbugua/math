@@ -77,10 +77,10 @@
                     Number of Questions
                     <div class="row">
                       
-                      <div class="btn round-buttons" onclick="addQuestion()">+</div>
-                      <input id="numberofquestions" type="number" name="" min="1" value="1"style="width: 5rem; color: #9C27B0" class="m-2 form-control font-weight-bold">
+                      <div class="btn round-buttons" onclick="addQuestion();calculateCost()">+</div>
+                      <input id="numberofpages" type="number" name="numberofpages" min="1" value="1"oninput="calculateCost()" style="width: 5rem; color: #9C27B0" class="m-2 form-control font-weight-bold">
                       {{-- <div class="round-buttons">0</div> --}}
-                      <div class="btn round-buttons" onclick="minusQuestion()">-</div>
+                      <div class="btn round-buttons" onclick="minusQuestion();calculateCost()">-</div>
                     </div>                                       
                                  
                   </form>
@@ -119,7 +119,7 @@
               <a class="btn btn-lg btn-block buttons" style="background: #02A9F3" href="{{'/orders/create'}}" role="button">
                 Continue          
               </a>
-              {{-- <button type="button" class="btn btn-success btn-lg btn-block" onclick="calculateCost()">Continue</button> --}}
+              
             </div>
         </div>
         <div class="col-sm">
