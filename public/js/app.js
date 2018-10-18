@@ -13867,7 +13867,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(12);
-module.exports = __webpack_require__(45);
+module.exports = __webpack_require__(43);
 
 
 /***/ }),
@@ -13884,11 +13884,11 @@ module.exports = __webpack_require__(45);
 __webpack_require__(13);
 //require('./get_data');
 // require('./clients_orders');
-__webpack_require__(36);
+__webpack_require__(38);
 // require('./stripe_index');
-__webpack_require__(37);
+__webpack_require__(39);
 
-window.Vue = __webpack_require__(38);
+window.Vue = __webpack_require__(40);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -13896,7 +13896,7 @@ window.Vue = __webpack_require__(38);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', __webpack_require__(41));
+Vue.component('example-component', __webpack_require__(63));
 
 var app = new Vue({
   el: '#app'
@@ -35926,7 +35926,9 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 36 */
+/* 36 */,
+/* 37 */,
+/* 38 */
 /***/ (function(module, exports) {
 
 function calculateCost() {
@@ -35939,7 +35941,7 @@ function calculateCost() {
 }
 
 /***/ }),
-/* 37 */
+/* 39 */
 /***/ (function(module, exports) {
 
 // (function() {
@@ -36211,12 +36213,12 @@ function stripeTokenHandler(token) {
 }
 
 /***/ }),
-/* 38 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
- * Vue.js v2.5.16
+ * Vue.js v2.5.17
  * (c) 2014-2018 Evan You
  * Released under the MIT License.
  */
@@ -41305,7 +41307,7 @@ Object.defineProperty(Vue, 'FunctionalRenderContext', {
   value: FunctionalRenderContext
 });
 
-Vue.version = '2.5.16';
+Vue.version = '2.5.17';
 
 /*  */
 
@@ -47174,10 +47176,10 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(39).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(41).setImmediate))
 
 /***/ }),
-/* 39 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -47233,7 +47235,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(40);
+__webpack_require__(42);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -47247,7 +47249,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 40 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -47440,15 +47442,40 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(6)))
 
 /***/ }),
-/* 41 */
+/* 43 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */,
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */,
+/* 52 */,
+/* 53 */,
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(42)
+var normalizeComponent = __webpack_require__(64)
 /* script */
-var __vue_script__ = __webpack_require__(43)
+var __vue_script__ = __webpack_require__(65)
 /* template */
-var __vue_template__ = __webpack_require__(44)
+var __vue_template__ = __webpack_require__(66)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -47465,7 +47492,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\ExampleComponent.vue"
+Component.options.__file = "resources/assets/js/components/ExampleComponent.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -47474,9 +47501,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-0ca92eac", Component.options)
+    hotAPI.createRecord("data-v-7168fb6a", Component.options)
   } else {
-    hotAPI.reload("data-v-0ca92eac", Component.options)
+    hotAPI.reload("data-v-7168fb6a", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -47487,7 +47514,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 42 */
+/* 64 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -47596,7 +47623,7 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 43 */
+/* 65 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -47625,7 +47652,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 44 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -47663,15 +47690,9 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-0ca92eac", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-7168fb6a", module.exports)
   }
 }
-
-/***/ }),
-/* 45 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

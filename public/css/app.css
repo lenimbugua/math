@@ -2267,11 +2267,6 @@ pre code {
   opacity: 1;
 }
 
-.form-control:-ms-input-placeholder {
-  color: #6c757d;
-  opacity: 1;
-}
-
 .form-control::-ms-input-placeholder {
   color: #6c757d;
   opacity: 1;
@@ -10451,7 +10446,7 @@ body {
 
 .banner {
   /*height: 640px;*/
-  background: url(/images/bg6.png?613e286cda9f4db75a1e5c3fe3ffa773);
+  background: url(/images/bg6.png?477af4ddae14c0ba03c51636eed6b198);
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -10486,7 +10481,7 @@ body {
   /*margin: 1.5rem 2rem 1.5rem 2rem;*/
   width: 18rem;
   opacity: 1;
-  background: url(/images/logo.png?52a6507d2575e6025aee39d2884a90b6);
+  background: url(/images/logo.png?382d6e9cd346510ffdb93eb60ef6111a);
   background-color: #ffffff;
   background-size: contain;
   background-repeat: no-repeat;
@@ -10657,7 +10652,7 @@ h3 {
 }
 
 #math1 {
-  background: url(/images/math16.png?c2298cdd3a1861550d5324cbac0c625b);
+  background: url(/images/math16.png?bbade7260160679098f4680a4f9f2e2b);
   height: 8rem;
   width: 12rem;
   background-size: contain;
@@ -10665,7 +10660,7 @@ h3 {
 }
 
 #math2 {
-  background: url(/images/math2.jpg?d036b3ade817582c2c8b3e3e47ec95df);
+  background: url(/images/math2.jpg?b4538892d99fdf4fc89495fafd10da5f);
   height: 8rem;
   width: 12rem;
   background-size: contain;
@@ -10673,7 +10668,7 @@ h3 {
 }
 
 #math3 {
-  background: url(/images/math11.png?7cc25c23fb6b8d0a0082bd2b0052836b);
+  background: url(/images/math11.png?f6654d239f25b7148e37d042ce090755);
   height: 8rem;
   width: 12rem;
   background-size: contain;
@@ -10681,7 +10676,7 @@ h3 {
 }
 
 #math4 {
-  background: url(/images/stat3.png?6671c5a9fbc8f54c1d33f7383f8a8a45);
+  background: url(/images/stat3.png?fa1beedf45842998420cbc36d2d6334d);
   height: 8rem;
   width: 12rem;
   background-size: contain;
@@ -10737,7 +10732,7 @@ h3 {
 }
 
 .allmath {
-  background: url(/images/math5.png?6ae5de9bf0105db1cddd38f741d94ee4);
+  background: url(/images/math5.png?fbf96e70ac17b7c3f77336010b545011);
   height: 16rem;
   width: 20rem;
   margin: 2rem;
@@ -10759,7 +10754,7 @@ h3 {
 .support-image {
   height: 27rem;
   width: 43rem;
-  background: url(/images/support.jpg?468b786f4f2236769fd3f5e4b8cbd131);
+  background: url(/images/support.jpg?9a9a9d5196510b5f30912eb41a945e75);
 }
 
 .support-punch-line {
@@ -10935,7 +10930,7 @@ body {
 .login-card-wrapper {
   min-height: 100%;
   min-width: 100%;
-  background: url(/images/14.jpeg?a066268920081cf2497cfef85939c289);
+  background: url(/images/14.jpeg?87b3bb050165db2c2b2e213038ac9a32);
   background-size: cover;
   background-repeat: no-repeat;
   display: -webkit-box;
@@ -11031,13 +11026,13 @@ body {
 }
 
 #login-card-wrapper {
-  background: url(/images/38.jpg?725a6f29ecc127e5121d792894ba780f) no-repeat center center fixed;
+  background: url(/images/38.jpg?a6ccb899ca9a471d3d1497a518705cb1) no-repeat center center fixed;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 #register-card-wrapper {
-  background: url(/images/7.jpg?39be46ea8ee16272faabc0c39daa9874) no-repeat center center fixed;
+  background: url(/images/7.jpg?906b5a5187f8a86f3b5a7fae49e2fb55) no-repeat center center fixed;
   background-size: cover;
   background-repeat: no-repeat;
 }
