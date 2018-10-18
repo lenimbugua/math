@@ -57,7 +57,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'support@prontolabs.io'),
-        'name' => env('MAIL_FROM_NAME', 'prontolabs'),
+        'name' => env('MAIL_FROM_NAME', 'Pronto Labs'),
     ],
 
     /*
