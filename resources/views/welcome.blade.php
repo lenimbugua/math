@@ -77,10 +77,10 @@
                     Number of Questions
                     <div class="row">
                       
-                      <div class="btn round-buttons" onclick="addQuestion();calculateCost()">+</div>
-                      <input id="numberofpages" type="number" name="numberofpages" min="1" value="1"oninput="calculateCost()" style="width: 5rem; color: #9C27B0" class="m-2 form-control font-weight-bold">
+                      <div class="btn round-buttons" onclick="addQuestion()">+</div>
+                      <input id="numberofpages" type="number" name="numberofpages" min="1" value="1"oninput="onInputCalculateCost()" style="width: 5rem; color: #9C27B0" class="m-2 form-control font-weight-bold">
                       {{-- <div class="round-buttons">0</div> --}}
-                      <div class="btn round-buttons" onclick="minusQuestion();calculateCost()">-</div>
+                      <div class="btn round-buttons" onclick="minusQuestion()">-</div>
                     </div>                                       
                                  
                   </form>
@@ -90,11 +90,10 @@
                 <div class="academic-level">
                   <form>                                       
                     <select class="form-control" id="academiclevel" onchange="calculateCost()">
-                      <option value="0">Select Academic Level</option>
-                      <option value="1">High School</option>                      
-                      <option value="2" selected="selected">Undergraduate</option>
-                      <option value="3">Master</option>
-                      <option value="4">PhD</option>
+                      <option value="High School">High School</option>                      
+                      <option value="Undergraduate" selected="selected">Undergraduate</option>
+                      <option value="Master">Master</option>
+                      <option value="PhD">PhD</option>
                     </select>              
                   </form>
                 </div>
