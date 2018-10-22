@@ -54,7 +54,7 @@
     <div class="banner-bottom-ribbon">
       <h3>
         Providing Non-plagiarised assignment services 
-        <a class="btn btn-success btn-lg" href="{{'/orders/create'}}" role="button">
+        <a class="btn btn-success btn-lg" href="{{'/orders/create'}}" role="button" style="background: #F17768">
           Get Started Now
         </a>
       </h3>
@@ -219,8 +219,8 @@
             </p>            
           </div>
           <div class="testimonial-punch-line-footer"> 
-              <a class="btn btn-success btn-lg" href="#" role="button">
-                Get Quote Now
+              <a class="btn btn-danger btn-lg" href="#" role="button" style="background: #946EDB">
+                Get Your Quote Now
               </a>   
           </div>
         </div>
