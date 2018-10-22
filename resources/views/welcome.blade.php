@@ -78,7 +78,7 @@
                     <div class="row">
                       
                       <button type="button" href="#" class="btn round-buttons text-center" onclick="addQuestion()" id="add">+</button>
-                      <input id="numberofpages" type="number" name="numberofpages" min="1" value="1"oninput="displayCost()" style="width: 5rem; color: #9C27B0" class="m-2 form-control font-weight-bold">
+                      <input id="numberofpages" type="number" name="numberofpages" min="1" value="1"oninput="paperType()" style="width: 5rem; color: #9C27B0" class="m-2 form-control font-weight-bold">
                       {{-- <div class="round-buttons">0</div> --}}
                       <div class="btn round-buttons" onclick="minusQuestion()">-</div>
                     </div>                                       
@@ -90,9 +90,9 @@
                 <div class="academic-level">
                   <form>
                   <label for="academiclevel" class="mb-0"><small><strong>Academic Level</strong></small></label>                                 
-                    <select class="form-control" id="academiclevel" onchange="displayCost()">
-                      <option value="High School">High School</option>                      
-                      <option value="Undergraduate" selected="selected">Undergraduate</option>
+                    <select class="form-control" id="academiclevel" onchange="paperType()">
+                      <option value="High School" selected="selected">High School</option>           
+                      <option value="Undergraduate">Undergraduate</option>
                       <option value="Master">Master</option>
                       <option value="PhD">PhD</option>
                     </select>              
@@ -104,7 +104,7 @@
                 <div class="academic-level">
                   <form> 
                    <label for="academiclevel" class="mb-0"><small><strong>Deadline</strong></small></label>                                     
-                    <select class="form-control" id="deadline" onchange="displayCost()">
+                    <select class="form-control" id="deadline" onchange="paperType()">
                       <option value="6 Hours">6 Hours</option>
                       <option value="12 Hours">12 Hours </option>
                       <option value="24 Hours">24 Hours</option>
@@ -161,7 +161,7 @@
                 <div class="math" id="math3">                
                 </div>            
               </div>
-              <div class="punch-line-sub-header">
+              <div class="calculator-header">
                 <h4>Accounting</h4>              
               </div>
               <div class="punch-line-content">

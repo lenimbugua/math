@@ -21,9 +21,7 @@
             console.log('Sorry, we are out of stock');
         }
     }
-    function paperType(){
 
-    }
     function deadline(){
         let deadline = document.getElementById('deadline');
         let urgency = deadline.options[deadline.selectedIndex].value;
@@ -111,9 +109,9 @@
         value = value+1;
         document.getElementById('numberofpages').value=value;
 
-
-        value *= calculateCost();
-        document.getElementById('totalcost').innerHTML = "$ "+value+".00";       
+        paperType();
+        // value *= calculateCost();
+        // document.getElementById('totalcost').innerHTML = "$ "+value+".00";       
     }
     function minusQuestion()
     {
@@ -126,13 +124,51 @@
             value2 =1;
         }  
 
-         value2 *= calculateCost();
-        document.getElementById('totalcost').innerHTML = "$ "+value2+".00";       
+        paperType();
+        //  value2 *= calculateCost();
+        // document.getElementById('totalcost').innerHTML = "$ "+value2+".00";       
     }
 
     function displayCost(){
         let cost = onInputCalculateCost();
         document.getElementById('totalcost').innerHTML = "$ "+cost+".00";
+    }
+
+    function calculateCost2(){
+        document.getElementById('add').disabled=false;
+        let cost = 20;
+        
+        
+        cost += deadline();
+        let value=parseInt(document.getElementById('numberofpages').value);
+        cost *= value;
+        return cost;        
+    }
+
+    function paperType(){
+        let paper = document.getElementById('papertype');
+        let papertype = paper.options[paper.selectedIndex].value;
+
+        switch (papertype) {
+          case 'Admission Essay':
+            
+          case 'Application Letter':
+            
+          case 'Cover Letter':
+            
+          case 'Curriculum Vitae':
+           
+          case 'Personal Statement':
+           
+          case 'Recommendation Letter':
+            
+          case 'Resume':
+            document.getElementById('totalcost').innerHTML = "$ "+calculateCost2()+".00";
+            break;
+          default:
+            displayCost();
+        }
+
     }
         
 </script>
