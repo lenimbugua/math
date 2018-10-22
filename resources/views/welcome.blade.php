@@ -69,16 +69,16 @@
                 </h4>             
               </div>
               <div class="total-cost">
-                <h3 id="totalcost">$ 00.00</h3>
+                <h3 id="totalcost">$ 8.00</h3>
               </div>
                <div class="calculator-options">
                 <div class="academic-level">
                   <form>
-                    Number of Questions
+                    <label for="academiclevel" class="mb-0"><small><strong>Number Of Pages</strong></small></label>
                     <div class="row">
                       
-                      <div class="btn round-buttons" onclick="addQuestion()">+</div>
-                      <input id="numberofpages" type="number" name="numberofpages" min="1" value="1"oninput="onInputCalculateCost()" style="width: 5rem; color: #9C27B0" class="m-2 form-control font-weight-bold">
+                      <button type="button" href="#" class="btn round-buttons text-center" onclick="addQuestion()" id="add">+</button>
+                      <input id="numberofpages" type="number" name="numberofpages" min="1" value="1"oninput="displayCost()" style="width: 5rem; color: #9C27B0" class="m-2 form-control font-weight-bold">
                       {{-- <div class="round-buttons">0</div> --}}
                       <div class="btn round-buttons" onclick="minusQuestion()">-</div>
                     </div>                                       
@@ -88,8 +88,9 @@
               </div>
               <div class="calculator-options">
                 <div class="academic-level">
-                  <form>                                       
-                    <select class="form-control" id="academiclevel" onchange="calculateCost()">
+                  <form>
+                  <label for="academiclevel" class="mb-0"><small><strong>Academic Level</strong></small></label>                                 
+                    <select class="form-control" id="academiclevel" onchange="displayCost()">
                       <option value="High School">High School</option>                      
                       <option value="Undergraduate" selected="selected">Undergraduate</option>
                       <option value="Master">Master</option>
@@ -101,23 +102,28 @@
              
               <div class="calculator-options">
                 <div class="academic-level">
-                  <form>                                       
-                    <select class="form-control" >
-                      <option value="0">Select Deadline</option>
-                      <option value="1">12 Hours</option>
-                      <option value="2">24 Hours </option>
-                      <option value="3">2 days</option>
-                      <option value="4">3 days </option>
-                      <option value="5">4 days </option>
-                      <option value="7">5 days </option>
-                      <option value="8">6 days </option> 
+                  <form> 
+                   <label for="academiclevel" class="mb-0"><small><strong>Deadline</strong></small></label>                                     
+                    <select class="form-control" id="deadline" onchange="displayCost()">
+                      <option value="6 Hours">6 Hours</option>
+                      <option value="12 Hours">12 Hours </option>
+                      <option value="24 Hours">24 Hours</option>
+                      <option value="2 Days">2 days </option>
+                      <option value="3 Days">3 days </option>
+                      <option value="5 Days">5 days </option>
+                      <option value="7 Days">7 days </option>
+                      <option value="9 Days">9 days </option>
+                      <option value="14 Days"selected="selected">14 days </option>
                     </select>              
                   </form>
                 </div>
               </div>
-              <a class="btn btn-lg btn-block buttons" style="background: #02A9F3" href="{{'/orders/create'}}" role="button">
-                Continue          
-              </a>
+              @include('includes.paper_type')
+              <div class="calculator-options">
+                <a class="btn btn-lg btn-block buttons mt-3" style="background: #02A9F3" href="{{'/orders/create'}}" role="button">
+                  Continue          
+                </a>
+            </div>
               
             </div>
         </div>
