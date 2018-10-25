@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-   
+   <div style="color: #9C27B0" class="badge badge-warning price-badge font-weight-bold d-flex justify-content-center">
+   	<div class="row mb-2"><h6 class="">Cost</h6></div>
+   	<div class="row mt-3" id="totalcost" onclick="displayCost()" >$8.00</div>
+   </div>
     <div class="container">
          
     <div class="client-login-card-header">
@@ -15,6 +18,7 @@
         </div> 
     </div>
     <div class="add-blog-body">
+
     	@include('includes.messages')
         {!! Form::open(['action' => 'OrdersController@store', 'method' => 'POST','files' => true]) !!}
         @include('includes.paper_type2')
@@ -46,7 +50,7 @@
 		    </div>
 		</div>
 		<div class="form-group row"> 
-	    	{{Form::label('numberofpages', 'Number Of Questions', ['class'=>'col-sm-2 col-form-label'])}} 
+	    	{{Form::label('numberofpages', 'Number Of Pages', ['class'=>'col-sm-2 col-form-label'])}} 
 		   
 		     <button type="button" href="#" class="btn round-buttons text-center" onclick="addQuestion()" id="add">+</button>
               <input id="numberofpages" type="number" name="numberofpages" min="1" value="1"oninput="paperType()" style="width: 5rem; color: #9C27B0" class="m-2 form-control font-weight-bold">
@@ -75,12 +79,7 @@
 		    	)}}	      		
 		    </div>
 		</div>
-		<div class="form-group row">
-	    	{{Form::label('amount', 'Amount', ['class'=>'col-sm-2 col-form-label'])}} 
-		    <div class="col-sm-10">
-		    	<h2><span class="badge badge-warning" id="totalcost" onclick="displayCost()">$ 107</span></h2>      		
-		    </div>
-		</div>
+		
 		{{Form::hidden('totalcost','107',['id'=>'hiddentotalcost'])}}
 			<div class="form-group row">
 		    	{{Form::label('instructions', 'Instructions', ['class'=>'col-sm-2 col-form-label'])}} 

@@ -32,3 +32,21 @@
   outline: none;
   border-style: none;
 }
+
+.price-badge{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:10%;
+    border-radius: 50%;
+    box-shadow: inset 0px 3px 0 rgba(255,255,255,0.3), 0 3px 3px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.65);
+    position: fixed;
+    right: 2rem;
+    height: 6rem;
+    width: 6rem;
+    font-size: 1rem;
+    font-weight: 500px;
+
+}
