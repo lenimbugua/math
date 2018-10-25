@@ -116,10 +116,10 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function payed()
+    public function paid()
     {
         $user_id = auth()->user()->id;
-        $order = Order::orderBy('created_at', 'desc')->where([['amount_payed', '>','0'],['user_id',$user_id]])->paginate(5);
+        $order = Order::orderBy('created_at', 'desc')->where([['amount_paid', '>','0'],['user_id',$user_id]])->paginate(5);
         
         $files = File::all();
 
@@ -132,10 +132,10 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function unpayed()
+    public function unpaid()
     {
         $user_id = auth()->user()->id;
-        $order = Order::orderBy('created_at', 'desc')->where([['amount_payed','0'],['user_id',$user_id]])->paginate(5);
+        $order = Order::orderBy('created_at', 'desc')->where([['amount_paid','0'],['user_id',$user_id]])->paginate(5);
         
         $files = File::all();
 
@@ -183,10 +183,10 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function payedListLayout()
+    public function paidListLayout()
     {
         $user_id = auth()->user()->id;
-        $orders = Order::orderBy('created_at', 'desc')->where([['amount_payed', '>','0'],['user_id',$user_id]])->paginate(15);        
+        $orders = Order::orderBy('created_at', 'desc')->where([['amount_paid', '>','0'],['user_id',$user_id]])->paginate(15);        
         
         JavaScript::put([        
             'orders' => $orders,                
@@ -200,10 +200,10 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function unpayedListLayout()
+    public function unpaidListLayout()
     {
         $user_id = auth()->user()->id;
-        $orders = Order::orderBy('created_at', 'desc')->where([['amount_payed','0'],['user_id',$user_id]])->paginate(15);       
+        $orders = Order::orderBy('created_at', 'desc')->where([['amount_paid','0'],['user_id',$user_id]])->paginate(15);       
 
         JavaScript::put([        
             'orders' => $orders,                

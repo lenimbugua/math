@@ -59,9 +59,9 @@
                                     <div class="show-order-item mb-3">
                                       <div class="row">
                                         <div class="col-4">
-                                         <small class="item-title">Category</small>
+                                         <small class="item-title">Subject</small>
                                       </div>
-                                      <div class="col-8">{{$order->category}}<br></div>
+                                      <div class="col-8">{{$order->subject}}<br></div>
                                       </div>                                      
                                     </div>
                                     <div class="show-order-item mb-3">
@@ -77,7 +77,7 @@
                                         <div class="col-4">
                                          <small class="item-title">Deadline</small>
                                       </div>
-                                      <div class="col-8">{{$order->urgency}}<br></div>
+                                      <div class="col-8">{{$order->deadline}}<br></div>
                                       </div>
                                     </div>
                                     <div class="show-order-item mb-3">
@@ -91,10 +91,10 @@
                                     <div class=" show-order-item mb-3">
                                       <div class="row">
                                           <div class="col-4">
-                                           <small class="item-title">Problems</small>
+                                           <small class="item-title">Pages</small>
                                         </div>
                                         <div class="col-8">
-                                          {{$order->number_of_questions}}
+                                          {{$order->number_of_pages}}
                                         </div>
                                       </div>
                                     </div>

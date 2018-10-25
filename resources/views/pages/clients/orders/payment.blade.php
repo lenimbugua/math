@@ -69,7 +69,7 @@
                         @endif
                        
                       
-                        <button type="submit" data-tid="elements_examples.form.pay_button"class="buttons btn btn-primary btn-lg btn-block" role="button" style="background: #6772E5" aria-pressed="true">Pay $ {{session('cost')}} {{session('id')}}
+                        <button type="submit" data-tid="elements_examples.form.pay_button"class="buttons btn btn-primary btn-lg btn-block" role="button" style="background: #6772E5" aria-pressed="true">Pay $ {{session('cost')}} 
                         </button> 
                   
                     @endif  

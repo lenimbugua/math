@@ -1,7 +1,7 @@
 <script >
     
     function academicLevel(){
-        let academic = document.getElementById('academiclevel');   
+        let academic = document.getElementById('academicLevel');   
         let academicLevel = academic.options[academic.selectedIndex].value;
 
         switch (academicLevel) {
@@ -131,6 +131,7 @@
 
     function displayCost(){
         let cost = onInputCalculateCost();
+        document.getElementById('hiddentotalcost').value = cost;
         document.getElementById('totalcost').innerHTML = "$ "+cost+".00";
     }
 
@@ -163,6 +164,7 @@
           case 'Recommendation Letter':
             
           case 'Resume':
+            document.getElementById('hiddentotalcost').value = calculateCost2();
             document.getElementById('totalcost').innerHTML = "$ "+calculateCost2()+".00";
             break;
           default:

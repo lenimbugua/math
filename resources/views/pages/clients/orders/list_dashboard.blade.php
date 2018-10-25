@@ -62,7 +62,7 @@
                         let aOpen='<a class="text-dark" href="/dashboard/'+value.id+'">';
                         let aClose='</a>';
                         
-                        chartData.push([aOpen+value.category+aClose, aOpen+value.academic_level+aClose, aOpen+value.urgency+aClose, aOpen+value.created_at+aClose, parseFloat(value.cost)]);
+                        chartData.push([aOpen+value.subject+aClose, aOpen+value.academic_level+aClose, aOpen+value.deadline+aClose, aOpen+value.created_at+aClose, parseFloat(value.cost)]);
                         
                       }
                       

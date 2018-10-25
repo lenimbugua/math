@@ -42,13 +42,13 @@ Route::get('/griddashboard', 'DashboardController@gridLayout')->name('client.gri
 
 Route::get('/settled', 'DashboardController@settled');
 Route::get('/inprogress', 'DashboardController@inprogress');
-Route::get('/payed', 'DashboardController@payed');
-Route::get('/unpayed', 'DashboardController@unpayed');
+Route::get('/paid', 'DashboardController@paid');
+Route::get('/unpaid', 'DashboardController@unpaid');
 
 Route::get('/settledlistlayout', 'DashboardController@settledListLayout')->name('client.settled.orders.list');
 Route::get('/inprogresslistlayout', 'DashboardController@inprogressListLayout')->name('client.inprogress.orders.list');
-Route::get('/payedlistlayout', 'DashboardController@payedListLayout')->name('client.payed.orders.list');
-Route::get('/unpayedlistlayout', 'DashboardController@unpayedListLayout')->name('client.unpayed.orders.list');
+Route::get('/paiddlistlayout', 'DashboardController@paiddListLayout')->name('client.paid.orders.list');
+Route::get('/unpaidlistlayout', 'DashboardController@unpaiddListLayout')->name('client.unpaid.orders.list');
 
 Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 
@@ -63,16 +63,16 @@ Route::prefix('admin')->group(function(){
 	Route::get('/all', 'AdminFilterOrdersController@all')->name('admin.orders.all');
 	Route::get('/settled', 'AdminFilterOrdersController@settled')->name('admin.orders.settled');
 	Route::get('/inprogress', 'AdminFilterOrdersController@inprogress')->name('admin.orders.inprogress');
-	Route::get('/payed', 'AdminFilterOrdersController@payed')->name('admin.orders.payed');
-	Route::get('/unpayed', 'AdminFilterOrdersController@unpayed')->name('admin.orders.unpayed');
+	Route::get('/paid', 'AdminFilterOrdersController@paid')->name('admin.orders.paid');
+	Route::get('/unpaid', 'AdminFilterOrdersController@unpaid')->name('admin.orders.unpaid');
 
 
 
 	Route::get('/all_gridlayout', 'AdminFilterOrdersController@allGridLayout')->name('admin.orders.all.gridlayout');
 	Route::get('/settled_gridlayout', 'AdminFilterOrdersController@settledGridLayout')->name('admin.orders.settled.gridlayout');
 	Route::get('/inprogress_gridlayout', 'AdminFilterOrdersController@inprogressGridLayout')->name('admin.orders.inprogress.gridlayout');
-	Route::get('/payed_gridlayout', 'AdminFilterOrdersController@payedGridLayout')->name('admin.orders.payed.gridlayout');
-	Route::get('/unpayed_gridlayout', 'AdminFilterOrdersController@unpayedGridLayout')->name('admin.orders.unpayed.gridlayout');
+	Route::get('/paid_gridlayout', 'AdminFilterOrdersController@paidGridLayout')->name('admin.orders.paid.gridlayout');
+	Route::get('/unpaid_gridlayout', 'AdminFilterOrdersController@unpaidGridLayout')->name('admin.orders.unpaid.gridlayout');
 });
 
 Route::get('allblogs', 'BlogLinksController@allBlogs')->name('all.blogs');

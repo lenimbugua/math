@@ -57,23 +57,28 @@ class OrdersController extends Controller
     public function store(Request $request)
     {
         $this -> validate($request,[
-            'category'=>'required',
+            'subject'=>'required',
             'academicLevel'=>'required',
-            'urgency'=>'required',
+            'deadline'=>'required',
             'instructions'=>'required',
+            'title'=>'required'
         ]);
         
         
         //make order
         $order = new Order;
-        $order->category=$request->input('category');
+        $order->subject=$request->input('subject');
         $order->academic_level=$request->input('academicLevel');
+        $order->title=$request->input('title');
+        $order->paper_type=$request->input('papertype');
         $order->cost=$request->input('totalcost');
-        $order->amount_payed='0';
+        $order->amount_paid='0';
         $order->progress='25';
-        $order->number_of_questions=$request->input('noofquestions');
-        $order->urgency=$request->input('urgency');
+        $order->number_of_pages=$request->input('numberofpages');
+        $order->deadline=$request->input('deadline');
         $order->instructions=$request->input('instructions');
+        $order->paper_format=$request->input('paperformat');
+        $order->number_of_sources=$request->input('numberofsources');
         $order->user_id=auth()->user()->id;
         $order->save();
 

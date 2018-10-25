@@ -15,15 +15,19 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('category');
+            $table->string('subject');
             $table->string('academic_level');
-            $table->string('number_of_questions');
+            $table->string('paper_type');
+            $table->text('title');
+            $table->string('number_of_pages');
             $table->string('cost');
-            $table->text('amount_payed');
+            $table->text('amount_paid');
             $table->integer('progress');
-            $table->string('urgency');
+            $table->string('deadline');
             $table->text('instructions');
-            $table->integer('user_id');            
+            $table->string('paper_format');
+            $table->integer('user_id');
+            $table->integer('number_of_sources');            
             $table->timestamps();
         });
     }

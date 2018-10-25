@@ -34,10 +34,10 @@
 
         function drawTable() {
           var data = new google.visualization.DataTable();
-          data.addColumn('string', 'Category');
+          data.addColumn('string', 'Subject');
           data.addColumn('string', 'Academic Level');
          
-          data.addColumn('string', 'urgency');
+          data.addColumn('string', 'Deadline');
           data.addColumn('string', 'Date Created');
           data.addColumn('number', 'Cost, USD');
          

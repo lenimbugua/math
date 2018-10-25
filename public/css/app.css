@@ -11545,6 +11545,7 @@ div.end-footer-content > p {
   width: 6rem;
   font-size: 1rem;
   font-weight: 500px;
+  z-index: 1;
 }
 
 .message {

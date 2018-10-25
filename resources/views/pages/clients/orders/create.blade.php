@@ -26,14 +26,14 @@
 	    <div class="form-group row">
 	       {{Form::label('title', 'Title', ['class'=>'col-sm-2 col-form-label'])}} 
 		   <div class="col-sm-10">
-		    	{{Form::text('category', '', ['class'=>'form-control','placeholder'=>'Type Title Here.....'] )}}	      		
+		    	{{Form::text('title', '', ['class'=>'form-control','placeholder'=>'Type Title Here.....'] )}}	      		
 		    </div>
 		</div>
 		<div class="form-group row">
-	    	{{Form::label('academiclevel', 'Academic Level', ['class'=>'col-sm-2 col-form-label'])}} 
+	    	{{Form::label('academicLevel', 'Academic Level', ['class'=>'col-sm-2 col-form-label'])}} 
 		    <div class="col-sm-10">
 		    	{{Form::select(
-		    		'academiclevel',		    		
+		    		'academicLevel',		    		
 		    		['High School' => 'High School',		    		 
 		    		 'Undergraduate' => 'Undergraduate',
 		    		 'Master' => 'Masters',
@@ -43,7 +43,7 @@
 		    		 [
 		    		 	'class'=>'form-control',
 		    		    'onchange'=>'paperType()',
-		    		    'id'=>'academiclevel'
+		    		    'id'=>'academicLevel'
 		    		]
 		    		 
 		    	)}}	      		
@@ -80,7 +80,7 @@
 		    </div>
 		</div>
 		
-		{{Form::hidden('totalcost','107',['id'=>'hiddentotalcost'])}}
+		{{Form::hidden('totalcost','8',['id'=>'hiddentotalcost'])}}
 			<div class="form-group row">
 		    	{{Form::label('instructions', 'Instructions', ['class'=>'col-sm-2 col-form-label'])}} 
 			    <div class="col-sm-10">

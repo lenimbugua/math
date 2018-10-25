@@ -31,7 +31,7 @@ class PaymentController extends Controller
 			]);
 
 		 $order = Order::find($id);
-		 $order->amount_payed=$cost;
+		 $order->amount_paid=$cost;
 		 $order->save();
 
 		 	$orders = Auth::user()->orders();
