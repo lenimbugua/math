@@ -170,5 +170,27 @@
         }
 
     }
+
+    function plus()
+    {
+        let value=parseInt(document.getElementById('numberofsources').value);
+        value = value+1;
+        document.getElementById('numberofsources').value=value;
+
+              
+    }
+    function minus()
+    {
+        let value=parseInt(document.getElementById('numberofsources').value);
+        value = value-1;
+        document.getElementById('numberofsources').value=value;
+        if (value < 1 ){
+            
+            document.getElementById('numberofsources').value=1;
+            value =1;
+        }  
+
+        
+    }
         
 </script>

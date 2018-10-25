@@ -17,35 +17,28 @@
     <div class="add-blog-body">
     	@include('includes.messages')
         {!! Form::open(['action' => 'OrdersController@store', 'method' => 'POST','files' => true]) !!}
+        @include('includes.paper_type2')
+        @include('includes.subject')
 	    <div class="form-group row">
-	       {{Form::label('category', 'Category', ['class'=>'col-sm-2 col-form-label'])}} 
+	       {{Form::label('title', 'Title', ['class'=>'col-sm-2 col-form-label'])}} 
 		   <div class="col-sm-10">
-		    	{{Form::select(
-		    		'category',		    		
-		    		['Mathematics' => 'Mathematics',
-		    		 'Accounting' => 'Accounting',
-		    		 'Statistics' => 'Statistics'		    		 
-		    		], 
-		    		 'Mathematics',
-		    		 ['class'=>'form-control']
-		    	)}}	      		
+		    	{{Form::text('category', '', ['class'=>'form-control','placeholder'=>'Type Title Here.....'] )}}	      		
 		    </div>
 		</div>
 		<div class="form-group row">
-	    	{{Form::label('academicLevel', 'Academic Level', ['class'=>'col-sm-2 col-form-label'])}} 
+	    	{{Form::label('academiclevel', 'Academic Level', ['class'=>'col-sm-2 col-form-label'])}} 
 		    <div class="col-sm-10">
 		    	{{Form::select(
-		    		'academicLevel',		    		
-		    		['High School' => 'High School',
-		    		 'College Level' => 'College Level',
-		    		 'Graduate One' => 'Graduate One',
-		    		 'Masters' => 'Masters',
+		    		'academiclevel',		    		
+		    		['High School' => 'High School',		    		 
+		    		 'Undergraduate' => 'Undergraduate',
+		    		 'Master' => 'Masters',
 		    		 'PhD' => 'PhD'
 		    		], 
-		    		 'College Level',
+		    		 'High School',
 		    		 [
 		    		 	'class'=>'form-control',
-		    		    'onchange'=>'calculateCost()',
+		    		    'onchange'=>'paperType()',
 		    		    'id'=>'academiclevel'
 		    		]
 		    		 
@@ -53,59 +46,39 @@
 		    </div>
 		</div>
 		<div class="form-group row"> 
-	    	{{Form::label('noofquestions', 'Number Of Questions', ['class'=>'col-sm-2 col-form-label'])}} 
-		   {{--  <div class="col-sm-10">
-		    	{{Form::select(
-		    		'noofquestions',		    		
-		    		['1' => '1 Question',
-		    		 '2' => '2 Questions',
-		    		 '3' => '3 Questions',
-		    		 '4' => '4 Questions',
-		    		 '5' => '5 Questions',
-		    		 '6' => '6 Questions',
-		    		 '7' => '7 Questions',
-		    		 '8' => '8 Questions',
-		    		 '9' => '9 Questions',
-		    		 '10' => '10 Questions',
-		    		 '11' => '11 Questions',
-		    		 '12' => '12 Questions'
-		    		], 
-		    		 '1',
-		    		 ['class'=>'form-control']
-		    	)}}	      		
-		    </div> --}}
-		    <div class="btn round-buttons" onclick="addQuestion()">+</div>
-                      <input id="numberofquestions" type="number" name="noofquestions" min="1" value="1"style="width: 5rem; color: #9C27B0" class="m-2 form-control font-weight-bold">
-                      {{-- <div class="round-buttons">0</div> --}}
+	    	{{Form::label('numberofpages', 'Number Of Questions', ['class'=>'col-sm-2 col-form-label'])}} 
+		   
+		     <button type="button" href="#" class="btn round-buttons text-center" onclick="addQuestion()" id="add">+</button>
+              <input id="numberofpages" type="number" name="numberofpages" min="1" value="1"oninput="paperType()" style="width: 5rem; color: #9C27B0" class="m-2 form-control font-weight-bold">
+                      
                       <div class="btn round-buttons" onclick="minusQuestion()">-</div>
+                    
 		</div>
 		<div class="form-group row">
-	    	{{Form::label('urgency', 'Urgency', ['class'=>'col-sm-2 col-form-label'])}} 
+	    	{{Form::label('deadline', 'Deadline', ['class'=>'col-sm-2 col-form-label'])}} 
 		    <div class="col-sm-10">
 		    	{{Form::select(
-		    		'urgency',		    		
-		    		['12hrs' => '12 Hours',
-		    		 '24hrs' => '24 Hours',
-		    		 '2days' => '2 Days',
-		    		 '3days' => '3 Days',
-		    		 '4days' => '4 Days',
-		    		 '5days' => '5 Days',
-		    		 '6days' => '6 Days',
-		    		 '7days' => '7 Days',
-		    		 '8days' => '8 Days',
-		    		 '9days' => '9 Days',
-		    		 '10days' => '10 Days',
-		    		 'above10' => 'Above 10 Days'
+		    		'deadline',		    		
+		    		['6 Hours' => '6 Hours',
+		    		 '12 Hours' => '12 Hours',
+		    		 '24 Hours' => '24 Hours',
+		    		 '2 Days' => '2 Days',
+		    		 '3 Days' => '3 Days',		    		 
+		    		 '5 Days' => '5 Days',		    		 
+		    		 '7 Days' => '7 Days',		    		 
+		    		 '9 Days' => '9 Days',
+		    		 '14 Days' => '14 Days'
+		    		
 		    		], 
-		    		 '3days',
-		    		 ['class'=>'form-control']
+		    		 '14 Days',
+		    		 ['class'=>'form-control', 'onchange'=>'paperType()']
 		    	)}}	      		
 		    </div>
 		</div>
 		<div class="form-group row">
 	    	{{Form::label('amount', 'Amount', ['class'=>'col-sm-2 col-form-label'])}} 
 		    <div class="col-sm-10">
-		    	<h2><span class="badge badge-warning" id="totalcost" onclick="calculateCost()">$ 107</span></h2>      		
+		    	<h2><span class="badge badge-warning" id="totalcost" onclick="displayCost()">$ 107</span></h2>      		
 		    </div>
 		</div>
 		{{Form::hidden('totalcost','107',['id'=>'hiddentotalcost'])}}
@@ -114,6 +87,40 @@
 			    <div class="col-sm-10">
 			    	{{Form::textarea('instructions', '', ['id'=>'article-ckeditor','class'=>'form-control'])}}	      		
 			    </div>
+			</div>
+			<div class="form-group row">
+		    	{{Form::label('paperformat', 'Paper Format', ['class'=>'col-sm-2 col-form-label'])}} 
+			    <div class="col-sm-10">
+			    	{{Form::select(
+			    		'paperformat',		    		
+			    		['APA' => 'APA',
+			    		 'MLA' => 'MLA',
+			    		 'Chicago' => 'Chicago',
+			    		 'Havard' => 'Havard',
+			    		 'Other' => 'Other'
+			    		], 
+			    		 'APA',
+			    		 [
+			    		 	'class'=>'form-control',
+			    		    'id'=>'paperformat'
+			    		]
+			    		 
+			    	)}}	      		
+			    </div>
+			</div>
+			<div class="form-group row">
+				{{Form::label('numberofsources', 'Numer of Sources', ['class'=>'col-sm-2 col-form-label'])}} 
+				<div class="input-group col-sm-10" style="width: 10rem; height: 2.4rem">
+					  <div class="input-group-prepend " style="cursor: pointer">
+					    <span class="input-group-text" onclick="minus()" >-</span>
+					  </div>
+					  <input type="number" id="numberofsources" type="number" name="numberofsources" min="1" value="1" class="form-control font-weight-bold" style="color: #9C27B0">
+					  <div class="input-group-append" style="cursor: pointer">
+					    <span class="input-group-text" onclick="plus()" >+</span>
+					  </div>
+				</div>
+				
+				
 			</div>
 			<div class="form-group row">
 		    	{{Form::label('files', 'Upload Materials', ['class'=>'col-sm-2 col-form-label'])}} 
@@ -131,7 +138,7 @@
     </div>
         
     </div>
-    @include('includes.js.cost_calculator')
+    @include('includes.js.cost_calculator') 
  @include('includes.js.ck_editor')   
 @include('includes.footer')
 
