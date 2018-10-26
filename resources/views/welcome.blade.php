@@ -90,7 +90,7 @@
                 <div class="academic-level">
                   <form>
                   <label for="academiclevel" class="mb-0"><small><strong>Academic Level</strong></small></label>                                 
-                    <select class="form-control" id="academiclevel" onchange="paperType()">
+                    <select class="form-control" id="academicLevel" onchange="paperType()">
                       <option value="High School" selected="selected">High School</option>           
                       <option value="Undergraduate">Undergraduate</option>
                       <option value="Master">Master</option>
@@ -99,7 +99,7 @@
                   </form>
                 </div>
               </div>
-             
+             {{Form::hidden('totalcost','8',['id'=>'hiddentotalcost'])}}
               <div class="calculator-options">
                 <div class="academic-level">
                   <form> 
