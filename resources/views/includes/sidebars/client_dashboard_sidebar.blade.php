@@ -15,10 +15,10 @@
       <i class="fas fa-spinner mr-2"> </i><a href="{{'/inprogress'}}"> In progress</a> 
     </li>
     <li class="list-group-item client-side-menu-hover bg-sidebar">
-      <i class="fas fa-hand-holding-usd mr-2"></i> <a href="{{'/payed'}}">Paid orders</a>  
+      <i class="fas fa-hand-holding-usd mr-2"></i> <a href="{{'/paid'}}">Paid orders</a>  
     </li>
     <li class="list-group-item client-side-menu-hover bg-sidebar">
-     <i class="fas fa-question mr-2"></i> <a href="{{'/unpayed'}}">Unpaid orders</a>  
+     <i class="fas fa-question mr-2"></i> <a href="{{'/unpaid'}}">Unpaid orders</a>  
     </li>
     
   </ul>

@@ -47,8 +47,8 @@ Route::get('/unpaid', 'DashboardController@unpaid');
 
 Route::get('/settledlistlayout', 'DashboardController@settledListLayout')->name('client.settled.orders.list');
 Route::get('/inprogresslistlayout', 'DashboardController@inprogressListLayout')->name('client.inprogress.orders.list');
-Route::get('/paiddlistlayout', 'DashboardController@paiddListLayout')->name('client.paid.orders.list');
-Route::get('/unpaidlistlayout', 'DashboardController@unpaiddListLayout')->name('client.unpaid.orders.list');
+Route::get('/paidlistlayout', 'DashboardController@paidListLayout')->name('client.paid.orders.list');
+Route::get('/unpaidlistlayout', 'DashboardController@unpaidListLayout')->name('client.unpaid.orders.list');
 
 Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 

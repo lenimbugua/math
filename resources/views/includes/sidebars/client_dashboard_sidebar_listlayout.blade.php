@@ -17,10 +17,10 @@
       <i class="fas fa-spinner mr-2"> </i><a href="{{ route('client.inprogress.orders.list') }}"> In progress</a> 
     </li>
     <li class="list-group-item client-side-menu-hover bg-sidebar">
-      <i class="fas fa-hand-holding-usd mr-2"></i> <a href="{{ route('client.payed.orders.list') }}">Paid orders</a>  
+      <i class="fas fa-hand-holding-usd mr-2"></i> <a href="{{ route('client.paid.orders.list') }}">Paid orders</a>  
     </li>
     <li class="list-group-item client-side-menu-hover bg-sidebar">
-     <i class="fas fa-question mr-2"></i> <a href="{{ route('client.unpayed.orders.list') }}">Unpaid orders</a>  
+     <i class="fas fa-question mr-2"></i> <a href="{{ route('client.unpaid.orders.list') }}">Unpaid orders</a>  
     </li>
     
   </ul>
