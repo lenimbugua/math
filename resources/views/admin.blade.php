@@ -24,10 +24,10 @@
                         <i class="fas fa-spinner"> </i>&nbsp;&nbsp;<a href="{{route('admin.orders.inprogress')}}">In progress</a> 
                       </li>
                       <li class="list-group-item client-side-menu-hover">
-                        <i class="fas fa-hand-holding-usd"></i>&nbsp;&nbsp;<a href="{{route('admin.orders.payed')}}">Payed</a>  
+                        <i class="fas fa-hand-holding-usd"></i>&nbsp;&nbsp;<a href="{{route('admin.orders.paid')}}">Paid</a>  
                       </li>
                       <li class="list-group-item client-side-menu-hover">
-                       <i class="fas fa-money-check-alt"></i>&nbsp;&nbsp;<a href="{{route('admin.orders.unpayed')}}">Unpayed</a>  
+                       <i class="fas fa-money-check-alt"></i>&nbsp;&nbsp;<a href="{{route('admin.orders.unpaid')}}">Unpaid</a>  
                       </li>
                       <li class="list-group-item client-side-menu-hover">
                        <i class="fas fa-money-check-alt"></i>&nbsp;&nbsp;<a href="{{route('post.dashboard')}}">Admin Functions</a>  
@@ -85,7 +85,7 @@
                         let aOpen='<a class="text-dark" href="/adminfunctions/'+value.id+'">';
                         let aClose='</a>';
                         
-                        chartData.push([aOpen+value.category+aClose, aOpen+value.academic_level+aClose, aOpen+value.urgency+aClose, value.created_at, parseFloat(value.cost)]);
+                        chartData.push([aOpen+value.subject+aClose, aOpen+value.academic_level+aClose, aOpen+value.deadline+aClose, value.created_at, parseFloat(value.cost)]);
                         
                       }
                       

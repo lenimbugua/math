@@ -37,13 +37,14 @@
   </div>
     <div class="card-body bg-greey message-body text-center">
       <div class="row d-flex justify-content-center">
-       <h5 class="card-title rounded pl-4 pr-4 bg-white pt-3 pb-3">Download Order # {{$id}} Files</h5>
+       
      </div>  
       <div class="row no-gutter d-flex justify-content-center">
           
-            <div class="card p-4 mb-5  messages rounded">
+            <div class="card p-4 mb-5  messages rounded" style="width: 90%">
             <h6 class="card-title text-success">Solutions</h6> 
-             
+             <table class="table table-sm table-bordered">
+              
 
             
            @php
@@ -55,21 +56,37 @@
                 <?php
                 $count2++;
                 ?>
-               <div class="row mb-3">
+                <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Action</th>                  
+                </tr>
+              </thead>
+              <tbody> 
+               <tr>
+                  <th scope="row">{{$count3++}}</th>
+                  <td><a href="{{route('downloadfiles',$file->id)}}" type="button" class="btn btn-primary"> Download <i class="fas fa-download"></i></a></td>
                  
-                   <div class="mr-3">{{$count2}}</div>
-                  
-                    <a class="  file-downloads" href="{{route('downloadfiles',$file->id)}}"><i class="fas fa-download"></i> Download</a>
-                 
-                </div>
+                </tr>
+                @else
+                <p class="text-danger">Solutions are yet to be uploaded</p>
                @endif
             @endforeach
+            </tbody>
+            </table> 
           </div>
         </div>
         <div class="row no-gutter d-flex justify-content-center">
-          <div class="card p-3  rounded">
-            <h6 class="card-title text-success">Materials</h6> 
-             
+          <div class="card p-3  rounded" style="width: 90%">
+            <h6 class="card-title text-success">Materials</h6>
+            <table class="table table-sm table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Action</th>                  
+                </tr>
+              </thead>
+              <tbody>            
              @php
                $count3=0;
              @endphp 
@@ -79,16 +96,17 @@
                 <?php
                 $count3++;
                 ?>
-               <div class="row">
+                <tr>
+                  <th scope="row">{{$count3++}}</th>
+                  <td><a href="{{route('downloadfiles',$file->id)}}" type="button" class="btn btn-primary"> Download <i class="fas fa-download"></i></a></td>
                  
-                    <div class="mr-3">{{$count3}}</div>
-                
-                  
-                    <a class=" file-downloads" href="{{route('downloadfiles',$file->id)}}"><i class="fas fa-download"></i> Download</a>
-                 
-                </div>
+                </tr>
+              @else
+              <p class="text-danger">No materials uploaded</p>
                @endif
             @endforeach 
+             </tbody>
+            </table> 
           </div>
          
           </div>

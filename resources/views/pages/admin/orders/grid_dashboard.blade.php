@@ -21,10 +21,10 @@
                         <i class="fas fa-spinner"> </i><a href="{{route('admin.orders.inprogress.gridlayout')}}"> Orders in progress</a> 
                       </li>
                       <li class="list-group-item client-side-menu-hover">
-                        <i class="fas fa-hand-holding-usd"></i> <a href="{{route('admin.orders.payed.gridlayout')}}">Payed orders</a>  
+                        <i class="fas fa-hand-holding-usd"></i> <a href="{{route('admin.orders.paid.gridlayout')}}">Paid orders</a>  
                       </li>
                       <li class="list-group-item client-side-menu-hover">
-                       <i class="fas fa-money-check-alt"></i> <a href="{{route('admin.orders.unpayed.gridlayout')}}">Unpayed orders</a>  
+                       <i class="fas fa-money-check-alt"></i> <a href="{{route('admin.orders.unpaid.gridlayout')}}">Unpaid orders</a>  
                       </li>
                       
                     </ul>

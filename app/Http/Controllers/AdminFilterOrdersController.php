@@ -80,10 +80,10 @@ class AdminFilterOrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function payed()
+    public function paid()
     {
         
-        $orders = Order::orderBy('created_at', 'desc')->where([['amount_payed', '>','0']])->paginate(15);       
+        $orders = Order::orderBy('created_at', 'desc')->where([['amount_paid', '>','0']])->paginate(15);       
 
         JavaScript::put([        
             'orders' => $orders,                
@@ -97,10 +97,10 @@ class AdminFilterOrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function unpayed()
+    public function unpaid()
     {
         
-        $orders = Order::orderBy('created_at', 'desc')->where([['amount_payed','0']])->paginate(15);      
+        $orders = Order::orderBy('created_at', 'desc')->where([['amount_paid','0']])->paginate(15);      
 
         JavaScript::put([        
             'orders' => $orders,                
@@ -151,10 +151,10 @@ class AdminFilterOrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function payedGridLayout()
+    public function paidGridLayout()
     {
         
-        $orders = Order::orderBy('created_at', 'desc')->where([['amount_payed', '>','0']])->paginate(15);
+        $orders = Order::orderBy('created_at', 'desc')->where([['amount_paid', '>','0']])->paginate(15);
         
         $files = File::all();        
         
@@ -166,10 +166,10 @@ class AdminFilterOrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function unpayedGridLayout()
+    public function unpaidGridLayout()
     {
         
-        $orders = Order::orderBy('created_at', 'desc')->where([['amount_payed','0']])->paginate(15);
+        $orders = Order::orderBy('created_at', 'desc')->where([['amount_paid','0']])->paginate(15);
         
         $files = File::all();       
         
