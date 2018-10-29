@@ -210,7 +210,7 @@
       <div class="col-sm">
         <div class="testimonial-punchline">
           <div class="testimonial-punch-line-header">
-            <h1>Introducing Pronto Labs online Assignment Help Site</h1>
+            <h1>Introducing Math online Help Site</h1>
           </div>
           <div class="testimonial-punch-line-content">
             <p>
@@ -219,7 +219,7 @@
             </p>            
           </div>
           <div class="testimonial-punch-line-footer"> 
-              <a class="btn btn-danger btn-lg" href="{{'/orders/create'}}" role="button" style="background: #946EDB">
+              <a class="btn btn-danger btn-lg" href="#" role="button" style="background: #946EDB">
                 Get Your Quote Now
               </a>   
           </div>

@@ -45,9 +45,7 @@
             <h6 class="card-title text-success">Solutions</h6> 
              <table class="table table-sm table-bordered">
               
-                @if($files->isEmpty())
-                    <p class="text-danger"> There are no files uploaded yet</p>
-                @endif
+
             
            @php
              $count2=0;
@@ -82,10 +80,13 @@
           <div class="card p-3  rounded" style="width: 90%">
             <h6 class="card-title text-success">Materials</h6>
             <table class="table table-sm table-bordered">
-              @if($files->isEmpty())
-                    <p class="text-danger"> There are no files uploaded yet</p>
-                @endif
-                         
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Action</th>                  
+                </tr>
+              </thead>
+              <tbody>            
              @php
                $count3=0;
              @endphp 
@@ -95,13 +96,6 @@
                 <?php
                 $count3++;
                 ?>
-                 <thead>
-                <tr>
-                  <th scope="col"></th>
-                  <th scope="col">Action</th>                  
-                </tr>
-              </thead>
-              <tbody>
                 <tr>
                   <th scope="row">{{$count3++}}</th>
                   <td><a href="{{route('downloadfiles',$file->id)}}" type="button" class="btn btn-primary"> Download <i class="fas fa-download"></i></a></td>
