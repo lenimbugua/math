@@ -64,7 +64,7 @@
               </thead>
               <tbody> 
                <tr>
-                  <th scope="row">{{$count3++}}</th>
+                  <th scope="row">{{$count2++}}</th>
                   <td><a href="{{route('downloadfiles',$file->id)}}" type="button" class="btn btn-primary"> Download <i class="fas fa-download"></i></a></td>
                  
                 </tr>
