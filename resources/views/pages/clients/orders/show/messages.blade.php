@@ -19,8 +19,13 @@
       <li class="nav-item">
         <a class="nav-link text-primary" href="{{ route('client.showfiles') }}/{{$id}}">Files</a>
       </li>
+       
       <li class="nav-item">
         <a class="nav-link active bg-active-grey" href="#">Messages</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link text-primary" href="{{ route('revisions.index',['id'=>$id]) }}">Revisions</a>
       </li>
       
     </div>

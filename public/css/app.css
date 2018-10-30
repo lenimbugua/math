@@ -11636,3 +11636,18 @@ div.end-footer-content > p {
   background-color: #555;
 }
 
+.revision-label {
+  background: #ffffff;
+  font-weight: bold;
+  font-size: .75rem;
+  line-height: 1.428571;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  height: 120%;
+}
+
+.revision-form-wrapper {
+  background: #ffffff;
+}
+

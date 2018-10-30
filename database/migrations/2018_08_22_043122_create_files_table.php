@@ -18,6 +18,7 @@ class CreateFilesTable extends Migration
             $table->string('path');
             $table->string('size');            
             $table->integer('order_id');
+            $table->integer('revision_id')->nullable();
             $table->string('original_name');
             $table->string('question_or_answer');
             $table->timestamps();

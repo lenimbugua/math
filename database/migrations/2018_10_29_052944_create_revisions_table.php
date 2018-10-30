@@ -15,6 +15,8 @@ class CreateRevisionsTable extends Migration
     {
         Schema::create('revisions', function (Blueprint $table) {
             $table->increments('id');
+            $table->text('instructions');
+            $table->integer('order_id');
             $table->timestamps();
         });
     }

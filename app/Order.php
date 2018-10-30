@@ -19,4 +19,7 @@ class Order extends Model
     public function messages(){
         return $this->hasMany('App\Message');
     }
+    public function revisions(){
+        return $this->hasMany('App\Revision');
+    }
 }

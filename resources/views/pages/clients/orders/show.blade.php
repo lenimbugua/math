@@ -24,6 +24,9 @@
       <li class="nav-item">
         <a class="nav-link text-primary" href="{{ route('chat',['id'=>$order->id]) }}">Chat</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link text-primary" href="{{ route('revisions.index',['id'=>$order->id]) }}">Revisions</a>
+      </li>
       
     </div>
     <div class="nav nav-tabs card-header-tabs">

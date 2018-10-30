@@ -21,6 +21,9 @@
       <li class="nav-item">
         <a class="nav-link text-primary" href="{{ route('client.ordermessages') }}/{{$id}}">Messages</a>
       </li>
+       <li class="nav-item">
+        <a class="nav-link text-primary" href="{{ route('revisions.index',['id'=>$id]) }}">Revisions</a>
+      </li>
       
     </div>
     <div class="nav nav-tabs card-header-tabs">
