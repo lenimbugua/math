@@ -17,6 +17,7 @@ class CreateRevisionsTable extends Migration
             $table->increments('id');
             $table->text('instructions');
             $table->integer('order_id');
+            $table->integer('revision_count');
             $table->timestamps();
         });
     }

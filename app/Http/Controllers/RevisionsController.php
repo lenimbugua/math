@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Order;
+use App\Revision;
 
 class RevisionsController extends Controller
 {
@@ -13,7 +15,8 @@ class RevisionsController extends Controller
      */
     public function index($id)
     {
-        return view('pages.clients.orders.show.revisions')->with(['id'=>$id]);
+        $revisions = Revision::where('order_id', $id)->orderBy('created_at', 'desc')->first();
+        return view('pages.clients.orders.show.revisions')->with(['id'=>$id, 'revisions'=>$revisions]);
     }
 
     /**
@@ -32,9 +35,23 @@ class RevisionsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Order $order)
     {
-        //
+
+        $this -> validate($request,[           
+                       
+            'instructions'=>'required',
+        ]);
+
+        $revision = new Revision;
+        $revision->instructions=$request->input('instructions');
+        $revision->revision_count=$request->input('revision_count');
+        $revision->order_id=$request->input('order_id');
+        $revision->save();
+
+        $revisions = Revision::where('order_id', $request->input('order_id'))->orderBy('created_at', 'desc')->first();
+
+        return view('pages.clients.orders.show.revisions')->with(['id'=>$request->input('order_id'), 'revisions'=>$revisions]);
     }
 
     /**

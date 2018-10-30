@@ -118,5 +118,6 @@ Route::get('messages/{id}', 'ChatsController@fetchMessages');
 Route::post('messages', 'ChatsController@sendMessage');
 
 //revision routes
-
 Route::get('revisions/{id}', 'RevisionsController@index')->name('revisions.index');
+ Route::resource('revision', 'RevisionsController');
+
