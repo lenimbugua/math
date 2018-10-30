@@ -17,7 +17,13 @@
     <!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
     
+<<<<<<< HEAD
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+=======
+
+    
+
+>>>>>>> master
    
    <script src="{{ asset('js/app.js') }}"></script>  
 
