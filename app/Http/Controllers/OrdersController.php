@@ -146,18 +146,31 @@ class OrdersController extends Controller
     public function update(Request $request, $id)
     {
         $this -> validate($request,[
-            'category'=>'required',
+            'subject'=>'required',
             'academicLevel'=>'required',
-            'urgency'=>'required',
+            'deadline'=>'required',
             'instructions'=>'required',
+            'title'=>'required'
         ]);
 
         //make order
         $orders = Order::find($id);
-        $orders->category=$request->input('category');
+
+        $cost = $request->input('totalcost');
+        $amountPaid = $orders->amount_paid;
+        $deficit = $cost - $amountPaid;
+
+
+        $orders->subject=$request->input('subject');
         $orders->academic_level=$request->input('academicLevel');
-        $orders->urgency=$request->input('urgency');
+        $orders->title=$request->input('title');
+        $orders->paper_type=$request->input('papertype');
+        $orders->cost=$request->input('totalcost');        
+        $orders->number_of_pages=$request->input('numberofpages');
+        $orders->deadline=$request->input('deadline');
         $orders->instructions=$request->input('instructions');
+        $orders->paper_format=$request->input('paperformat');
+        $orders->number_of_sources=$request->input('numberofsources');        
         $orders->save();
 
         //store file
@@ -182,7 +195,14 @@ class OrdersController extends Controller
         $user_id = auth()->user()->id;
         $user=User::find($user_id);
         $files = File::where('order_id', '==', $id)->get();
-        return view('dashboard')->with(['orders'=> $user->orders, 'files'=>$files]);
+
+        if ($amountPaid < $cost) {
+            return redirect('/payment')->with(['success'=>'Your order has been successfully edited','cost'=>$deficit,'last_insert_id' => $orders->id]);
+        }
+        else{
+           return view('dashboard')->with(['orders'=> $user->orders, 'files'=>$files]); 
+        }
+        
     }
 
     /**

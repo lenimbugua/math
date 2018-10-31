@@ -31,11 +31,9 @@
     </div>
     <div class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
-        <a class="nav-link text-primary" href="#">Edit</a>
+        <a class="nav-link text-primary" href="{{ route('orders.show',['id'=>$order->id]) }}">Edit</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link text-danger" href="{{ route('client.showfiles') }}/{{$order->id}}">Delete</a>
-      </li>
+     
       
     </div>
   </ul>

@@ -45,6 +45,7 @@
   <div class="card-body bg-greey message-body">
     <div class="container">
       <div class="revision-form-wrapper p-4">
+        
         @if(!$revisions)
         @php
           $revision_count =1;
@@ -53,13 +54,18 @@
           echo $revision_count;
         @endphp
         @else
+        <h6>Revisions</h6>
+        <div class="card mb-4">
+          
+          <div id="table_div"></div>
+        </div>
+        
         @php
           
         @endphp
             
                 @php
                   $revision_count=++$revisions->revision_count;
-                  echo $revision_count;
                 @endphp
                 
            
@@ -89,6 +95,10 @@
               </button>
 
             {!! Form::close() !!}
+        @else
+          <div class="card">
+            <p class="text-danger">You have exhausted revisions <a href="{{route('orders.create') }}">Create new Order?</a></p>
+          </div>
         @endif
          
       </div>
@@ -102,6 +112,25 @@
 </div>
 
  @include('includes.js.ck_editor')
+@include('includes.footer')
+        <script type="text/javascript">
+          var chartData = [];
+      function getData (){
+
+                      console.log(revisions);
+                      for(let value of revisions){
+
+                        let aOpen='<a class="text-dark" href="/revision/'+value.id+'">';
+                        let aClose='</a>';
+                        
+                        chartData.push([aOpen+value.revision_count+aClose, aOpen+value.created_at+aClose]);
+                        
+                      }
+                      
+                  }
+        </script>
+        
+          @include('includes.js.revision')
 @endsection
 
 
