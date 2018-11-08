@@ -46,36 +46,38 @@
           
             <div class="card p-4 mb-5  messages rounded" style="width: 90%">
             <h6 class="card-title text-success">Solutions</h6> 
-             <table class="table table-sm table-bordered">
-              
+             <table class="table table-sm table-bordered">            
+               @php
+                 $count2=0;
 
-            
-           @php
-             $count2=0;
-           @endphp
-              @foreach($files as $file)
-                
-                @if($file->question_or_answer == 'answer')
-                <?php
-                $count2++;
-                ?>
-                <thead>
-                <tr>
-                  <th scope="col"></th>
-                  <th scope="col">Action</th>                  
-                </tr>
-              </thead>
-              <tbody> 
-               <tr>
-                  <th scope="row">{{$count2++}}</th>
-                  <td><a href="{{route('downloadfiles',$file->id)}}" type="button" class="btn btn-primary"> Download <i class="fas fa-download"></i></a></td>
-                 
-                </tr>
-                @else
-                <p class="text-danger">Solutions are yet to be uploaded</p>
-               @endif
-            @endforeach
-            </tbody>
+               @endphp
+               
+                  @foreach($files as $file)
+                    
+                    @if($file->question_or_answer == 'answer')
+
+                    <?php
+                    $count2++;
+
+                    ?>
+                    <thead>
+                    <tr>
+                      <th scope="col"></th>
+                      <th scope="col" colspan="3">Action</th>                  
+                    </tr>
+                  </thead>
+                  <tbody> 
+                   <tr>
+                      <th scope="row">{{$count2++}}</th>
+                      <td><a href="{{route('downloadfiles',$file->id)}}" type="button" class="btn btn-primary"> Download <i class="fas fa-download"></i></a></td>
+                      <td><a href="{{route('downloadfiles',$file->id)}}" type="button" class="btn btn-info"> Send Revision Request <i class="fas fa-download"></i></a></td>
+                      <td><a href="{{route('downloadfiles',$file->id)}}" type="button" class="btn btn-success"> Approve<i class="fas fa-download"></i></a></td>
+                    </tr>
+                    @else
+                    <p class="text-danger">Solutions are yet to be uploaded</p>
+                   @endif
+                @endforeach
+                </tbody>
             </table> 
           </div>
         </div>

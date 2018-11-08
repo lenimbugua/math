@@ -77,14 +77,18 @@
             <small class="item-title">Payment Status</small><br>
             @if($order->amount_paid==0)
             Unpaid<br>
+            @elseif($order->amount_paid < $order->cost)
+            <span class="font-weight-bold" style="color: #9C27B0" >${{$order->amount_paid }}</span>Paid <span class="font-weight-bold" style="color: #9C27B0" >${{$order->cost-$order->amount_paid }}</span>remaining 
             @else
-            Paid<br>
+            Paid<br>            
             @endif
           </div>
           <div class="show-order-item mb-3">
             <small class="item-title">Order Status</small><br>
             @if($order->amount_paid==0)
             Waiting for Payment<br>
+            @elseif($order->amount_paid < $order->cost)
+            please complete payment
             @else
             Progress is <span class="font-weight-bold" style="color: #9C27B0" >{{$order->progress}}%</span>
             @endif

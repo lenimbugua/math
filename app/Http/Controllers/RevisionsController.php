@@ -18,11 +18,15 @@ class RevisionsController extends Controller
     {
 
         $revisions = Revision::where('order_id', $id)->orderBy('created_at', 'desc')->first();
+        $revision_count=0;
+        if(isset($revisions) ){
+            $revision_count = $revisions->revision_count;
+        }
         $revisions2 = Revision::where('order_id', $id)->orderBy('created_at', 'desc')->get();
         JavaScript::put([        
             'revisions' => $revisions2,                
         ]);
-        return view('pages.clients.orders.show.revisions')->with(['id'=>$id, 'revisions'=>$revisions]);
+        return view('pages.clients.orders.show.revisions')->with(['id'=>$id, 'revisions'=>$revisions, 'revision_count'=>$revision_count]);
     }
 
     /**
@@ -30,9 +34,17 @@ class RevisionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $revisions1 = Revision::where('order_id', $id)->orderBy('created_at', 'desc')->first();
+        if(isset($revisions1) ){
+            $revision_count = $revisions1->revision_count+1;
+        }
+        else{
+            $revision_count =1;
+        }
+        
+        return view('pages.clients.orders.show.create_revision')->with(['id'=>$id, 'revision_count'=>$revision_count]);
     }
 
     /**
@@ -50,8 +62,10 @@ class RevisionsController extends Controller
         ]);
 
         $revision = new Revision;
+        $revision_count =$request->input('revision_count');
+
         $revision->instructions=$request->input('instructions');
-        $revision->revision_count=$request->input('revision_count');
+        $revision->revision_count=$revision_count;
         $revision->order_id=$request->input('order_id');
         $revision->save();
 
@@ -62,7 +76,7 @@ class RevisionsController extends Controller
             'revisions' => $revisions2,                
         ]);
 
-        return view('pages.clients.orders.show.revisions')->with(['id'=>$request->input('order_id'), 'revisions'=>$revisions]);
+        return view('pages.clients.orders.show.revisions')->with(['id'=>$request->input('order_id'), 'revisions'=>$revisions, 'revision_count'=>$revision_count]);
     }
 
     /**
@@ -123,11 +137,30 @@ class RevisionsController extends Controller
      */
     public function destroy($id)
     {
-        $revisions = Revision::find($id);
-        $id = $revisions->order_id;
+        $revision = Revision::find($id);
+        
+
+        if(isset($revision) ){
+           $id = $revision->order_id;
+
+           $revision->delete();
+        }
+
+       
+
+        $revisions = Revision::where('order_id', $id)->orderBy('created_at', 'desc')->get();
+        JavaScript::put([        
+            'revisions' => $revisions,                
+        ]);
+
+        $revisions1 = Revision::where('order_id', $id)->orderBy('created_at', 'desc')->first();
+        $revision_count=0;
+        if(isset($revisions1) ){
+            $revision_count = $revisions1->revision_count;
+        }
              
 
-        $revisions->delete();
-         return view('pages.clients.orders.show.show_revision')->with(['success'=>'Removed successfully', 'revisions'=>$revisions, 'id'=>$id]);
+        
+         return view('pages.clients.orders.show.revisions')->with(['success'=>'Removed successfully', 'revisions'=>$revisions, 'id'=>$id,  'revision_count' => $revision_count]);
     }
 }

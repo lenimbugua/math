@@ -20,9 +20,7 @@
       <li class="nav-item">
         <a class="nav-link text-primary" href="{{ route('revision.edit', ['id'=>$id]) }}">Edit</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link text-danger" href="route('revision.delete', ['id'=>$id]) }}">Delete</a>
-      </li>
+      
       {!! Form::open(['action' => ['RevisionsController@destroy', $id], 'method' => 'POST']) !!}
 
         {{Form::hidden('_method', 'DELETE')}}

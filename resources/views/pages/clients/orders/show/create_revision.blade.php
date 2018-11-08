@@ -46,49 +46,43 @@
     <div class="container">
       <div class="revision-form-wrapper p-4">
         
+       
+            
+            {!! Form::open(['action' => 'RevisionsController@store', 'method' => 'POST','files' => true]) !!}
+
+              <div class="form-group">
+
+                {{Form::label('instructions', 'Type Revision Reasons/Instructions Below' , ['class'=>'revision-label d-flex justify-content-left mb-0 '])}} 
+                
+                  {{Form::textarea('instructions', '', ['id'=>'article-ckeditor','class'=>'form-control'])}}          
+            </div>
+            <div class="form-group">
+                {{Form::label('files', 'Upload Revision Materials (Optional)', ['class'=>'revision-label d-flex justify-content-left  mb-0'])}} 
+                
+                  {{Form::file('files[]', ['id'=>'file','class'=>'form-control buttons','multiple'])}}            
+                
+            </div>
+            {{Form::hidden('revision_count',$revision_count)}}
+            {{Form::hidden('order_id',$id)}}
+             <button id="green" type="submit" class=" buttons btn btn-lg btn-block revision-label">
+                {{ __('Submit Revision Request') }}
+              </button>
+
+            {!! Form::close() !!}
+       
          
-        <h6>Revisions</h6>
-        <div class="card mb-4">
-          @if($revisions!=null)
-            <div id="table_div"></div>
-            @if($revision_count<=2)
-              <div> <a href="{{ route('revisions.create',['id'=>$id]) }}"> Submit another Revision Request</a></div>
-            @else
-              <div class="text-danger"> You have exhausted revision requests</div>
-              <div> <a href="{{ route('orders.create') }}">Create a new order?</a></div>
-            @endif
-          @else
-          <div class="text-danger"> You have 0 revision request</div>
-          <div> <a href="{{ route('revisions.create',['id'=>$id]) }}"> Submit a Revision Request</a></div>
-          @endif
-        </div>
-        
       </div>
+     
     </div>
+
+  </div>
+
+    
   </div>
 </div>
 
-        
-        
-@include('includes.footer')
-        <script type="text/javascript">
-          var chartData = [];
-      function getData (){
+ @include('includes.js.ck_editor')
 
-                      console.log(revisions);
-                      for(let value of revisions){
-
-                        let aOpen='<a class="text-dark" href="/revision/'+value.id+'">';
-                        let aClose='</a>';
-                        
-                        chartData.push([aOpen+value.revision_count+aClose, aOpen+value.created_at+aClose]);
-                        
-                      }
-                      
-                  }
-        </script>
-        
-          @include('includes.js.revision')
 @endsection
 
 

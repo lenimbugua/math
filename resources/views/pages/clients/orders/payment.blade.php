@@ -62,6 +62,7 @@
                   <div class="form-group row">
                     @if(session('cost'))
                        <input type="hidden" name="cost" value="{{session('cost')}}">
+                       <input type="hidden" name="deficit" value="{{session('deficit')}}">
                        @if(is_null($id))
                           <input type="hidden" name="last_insert_id" value="{{session('last_insert_id')}}">
                         @else

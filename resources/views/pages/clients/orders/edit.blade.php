@@ -81,7 +81,7 @@
 		    </div>
 		</div>
 		
-		{{Form::hidden('totalcost','8',['id'=>'hiddentotalcost'])}}
+		{{Form::hidden('totalcost','8',['id'=>'hiddentotalcost'])}}		
 			<div class="form-group row">
 		    	{{Form::label('instructions', 'Instructions', ['class'=>'col-sm-2 col-form-label'])}} 
 			    <div class="col-sm-10">
@@ -128,12 +128,13 @@
 			    	{{Form::file('files[]', ['id'=>'file','class'=>'form-control buttons','multiple'])}}	      		
 			    </div>
 			</div>
+			{{Form::hidden('_method', 'PUT')}}
 			<div class="form-group row">
 				<div class="col-md-10 offset-md-2">
 					{{Form::submit('Submit',['class'=>'btn btn-success btn-lg btn-block '])}}
 				</div>				
 			</div>           
-			{{Form::hidden('_method', 'PUT')}} 
+			 
 		{!! Form::close() !!}
     </div>
         

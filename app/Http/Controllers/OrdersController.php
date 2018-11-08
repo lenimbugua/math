@@ -106,7 +106,7 @@ class OrdersController extends Controller
         
         //redirect
         $cost=$request->input('totalcost');
-        return redirect('/payment')->with(['success'=>'Your order has been successfully created','cost'=>$cost,'last_insert_id' => $order->id]);
+        return redirect('/payment')->with(['success'=>'Your order has been successfully created','cost'=>$cost,'deficit'=>$cost,'last_insert_id' => $order->id]);
     }
 
     /**
@@ -197,7 +197,7 @@ class OrdersController extends Controller
         $files = File::where('order_id', '==', $id)->get();
 
         if ($amountPaid < $cost) {
-            return redirect('/payment')->with(['success'=>'Your order has been successfully edited','cost'=>$deficit,'last_insert_id' => $orders->id]);
+            return redirect('/payment')->with(['success'=>'Your order has been successfully edited','deficit'=>$deficit, 'cost'=>$cost,'last_insert_id' => $orders->id]);
         }
         else{
            return view('dashboard')->with(['orders'=> $user->orders, 'files'=>$files]); 

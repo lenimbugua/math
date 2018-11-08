@@ -45,12 +45,13 @@
                    
              
                   <div class="form-group row">
-                    <input type="hidden" name="cost" value="{{session('cost')}}">
+                    <input type="hidden" name="cost" value="{{$order->cost}}">
+                    <input type="hidden" name="deficit" value="{{$deficit}}">
         
             <input type="hidden" name="last_insert_id" value="{{$order->id}}">
                        
                       
-                        <button type="submit" data-tid="elements_examples.form.pay_button"class="buttons btn btn-primary btn-lg btn-block" role="button" style="background: #6772E5" aria-pressed="true">Pay $ {{session('cost')}} {{session('id')}}
+                        <button type="submit" data-tid="elements_examples.form.pay_button"class="buttons btn btn-primary btn-lg btn-block" role="button" style="background: #6772E5" aria-pressed="true">Pay $ {{$deficit}}
                         </button> 
                   
                      

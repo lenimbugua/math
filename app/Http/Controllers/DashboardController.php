@@ -75,7 +75,7 @@ class DashboardController extends Controller
     public function showFiles($id)
     {
         
-        $files = File::where('order_id' ,'==', $id)->get();
+        $files = File::where('order_id' , $id)->get();
         return view('pages.clients.orders.show.files')->with(['id'=> $id,'files'=>$files]);
     }
 

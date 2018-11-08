@@ -19,7 +19,8 @@ class PaymentController extends Controller
 		$token = $request->input('stripeToken');
 		$id=$request->input('last_insert_id');
 		$cost = (int)$request->input('cost');
-		$amount= $cost*10000;
+		$deficit = (int)$request->input('deficit');
+		$amount= $deficit*10000;
 			
 		
 		try {

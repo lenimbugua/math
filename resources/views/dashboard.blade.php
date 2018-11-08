@@ -19,6 +19,7 @@
             $rowCount = 0;                          
             $count = 0;
             $bootstrapColWidth = 12 / $numOfCols;
+            
           @endphp
           
             @if ($orders->isEmpty()) 
@@ -40,7 +41,7 @@
                                              
                             @php
                               $count++;
-
+                                $deficit = $order->cost-$order->amount_paid;
                               session(['cost' => $order->cost]);
                               session(['id' => $order->id]);
                             @endphp
@@ -143,7 +144,7 @@
                                     @endif
                                  </div>
                                  <div class="col">
-                                    @if($order->amount_payed ==0)
+                                    @if($order->amount_paid < $order->cost)
                                     @include('includes.modals.client_dashboard_payment_modal')
                                   @endif
                                  </div>
