@@ -70,7 +70,7 @@
                    <tr>
                       <th scope="row">{{$count2++}}</th>
                       <td><a href="{{route('downloadfiles',$file->id)}}" type="button" class="btn btn-primary"> Download <i class="fas fa-download"></i></a></td>
-                      <td><a href="{{route('downloadfiles',$file->id)}}" type="button" class="btn btn-info"> Send Revision Request <i class="fas fa-download"></i></a></td>
+                      <td><a href="{{route('revisions.create',$id)}}" type="button" class="btn btn-info"> Send Revision Request <i class="fas fa-download"></i></a></td>
                       <td><a href="{{route('downloadfiles',$file->id)}}" type="button" class="btn btn-success"> Approve<i class="fas fa-download"></i></a></td>
                     </tr>
                     @else
