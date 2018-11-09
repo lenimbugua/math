@@ -21,6 +21,8 @@ class CreateFilesTable extends Migration
             $table->integer('revision_id')->nullable();
             $table->string('original_name');
             $table->string('question_or_answer');
+            $table->string('revision_or_order');
+            $table->boolean('editable');
             $table->timestamps();
         });
     }

@@ -47,7 +47,7 @@
       <div class="revision-form-wrapper p-4">
         
        
-            
+            @include('includes.messages')
             {!! Form::open(['action' => 'RevisionsController@store', 'method' => 'POST','files' => true]) !!}
 
               <div class="form-group">

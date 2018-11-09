@@ -43,8 +43,15 @@
        
      </div>  
       <div class="row no-gutter d-flex justify-content-center">
-          
-            <div class="card p-4 mb-5  messages rounded " style="width: 90%">
+          @if ($files->isEmpty()) 
+             <div class="card">
+                <div class="card-body">
+                  <h6 class="text-danger"> There are no files uploaded <a href="{{ route('orders.create') }}">Create new order?</a></h6>
+                </div>
+              </div>
+          @else
+                          <div class="card p-4 mb-5  messages rounded " style="width: 90%">
+              
               <h6 class="card-title text-success">Solutions</h6> 
               <div class="row">
                 <div class="col d-flex justify-content-end">
@@ -89,7 +96,7 @@
                     <a href="{{route('revisions.create',$id)}}" type="button" class=" buttons btn btn-block btn-info" style="background: #8E2D83; height: 3rem"> Send Revision Request </a>
                   </div>
                   <div class="row m-3">
-                    <a href="{{route('downloadfiles',$file->id)}}" type="button" class="buttons btn btn-large btn-block btn-success" style="background:#28A745; height: 3rem"> Approve <i class="fas fa-check"></i></a>
+                    <a href="{{ route('approve',$id) }}" type="button" class="buttons btn btn-large btn-block btn-success" style="background:#28A745; height: 3rem"> Approve <i class="fas fa-check"></i></a>
                   </div>
                   </div>
                   
@@ -133,7 +140,9 @@
             </table> 
           </div>
          
-          </div>
+          </div>   
+          @endif
+
         </div>     
     </div>    
   

@@ -176,6 +176,8 @@ class AdminController extends Controller
                 $file->size =$filesize;
                 $file->original_name=$filename;
                 $file->question_or_answer='answer';
+                $file->revision_or_order='order';
+                $file->editable=0;
                 $file->order_id =$order->id;
                 $file->save();
             }

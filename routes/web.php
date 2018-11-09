@@ -122,3 +122,5 @@ Route::get('revisions/{id}', 'RevisionsController@index')->name('revisions.index
 Route::get('createrevisions/{id}', 'RevisionsController@create')->name('revisions.create');
  Route::resource('revision', 'RevisionsController');
 
+Route::get('approve/{id}', 'OrdersController@approve')->name('approve');
+

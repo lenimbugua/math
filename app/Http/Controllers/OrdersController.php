@@ -79,6 +79,7 @@ class OrdersController extends Controller
         $order->instructions=$request->input('instructions');
         $order->paper_format=$request->input('paperformat');
         $order->number_of_sources=$request->input('numberofsources');
+        $order->approved=$request->input('approved');
         $order->user_id=auth()->user()->id;
         $order->save();
 
@@ -202,6 +203,17 @@ class OrdersController extends Controller
         else{
            return view('dashboard')->with(['orders'=> $user->orders, 'files'=>$files]); 
         }
+        
+    }
+
+    public function approve($id)
+    {
+        $orders = Order::find($id);
+
+        $orders->approved=1;
+        $orders->save();
+        $files = File::where('order_id' , $id)->get();
+        return view('pages.clients.orders.show.files')->with(['id'=> $id,'files'=>$files]);
         
     }
 

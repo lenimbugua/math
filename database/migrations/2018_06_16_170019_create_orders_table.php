@@ -27,7 +27,8 @@ class CreateOrdersTable extends Migration
             $table->text('instructions');
             $table->string('paper_format');
             $table->integer('user_id');
-            $table->integer('number_of_sources');            
+            $table->integer('number_of_sources'); 
+            $table->boolean('approved');            
             $table->timestamps();
         });
     }

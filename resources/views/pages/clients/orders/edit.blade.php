@@ -81,7 +81,8 @@
 		    </div>
 		</div>
 		
-		{{Form::hidden('totalcost','8',['id'=>'hiddentotalcost'])}}		
+		{{Form::hidden('totalcost','8',['id'=>'hiddentotalcost'])}}
+		{{Form::hidden('approved','0',['id'=>'approved'])}}		
 			<div class="form-group row">
 		    	{{Form::label('instructions', 'Instructions', ['class'=>'col-sm-2 col-form-label'])}} 
 			    <div class="col-sm-10">
