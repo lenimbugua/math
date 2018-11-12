@@ -17,6 +17,14 @@
         @include('includes.sidebars.client_dashboard_sidebar_listlayout')
       </div>
       <div class="col-md-10">
+        <form method="POST" action="{{ route('client.searchbyidlist') }}" class="form-inline">
+            @csrf
+            <div class="form-group">
+            <input type="number" name="searchById" class="form-control" placeholder="Search By Id" required>
+          
+            <button type="submit" class="buttons btn btn-primary" style="height: 38px">Search</button>
+            </div>
+        </form>
         <?php
                             $count = 0;
                           ?>

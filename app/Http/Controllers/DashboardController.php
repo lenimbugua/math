@@ -211,4 +211,22 @@ class DashboardController extends Controller
         
         return view('pages.clients.orders.list_dashboard')->with(['orders'=>$orders]);
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function searchByIdListLayout(Request $request)
+    {
+        $orderId = $request->input('searchById');
+        $user_id = auth()->user()->id;
+        $orders = Order::orderBy('created_at', 'desc')->where([['id', $orderId],['user_id',$user_id]])->paginate(15);       
+
+        JavaScript::put([        
+            'orders' => $orders,                
+        ]);
+        
+        return view('pages.clients.orders.list_dashboard')->with(['orders'=>$orders]);
+    }
 }
