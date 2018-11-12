@@ -14,6 +14,21 @@
           @include('includes.sidebars.client_dashboard_sidebar')
         </div>
         <div class="col-10 pl-3">
+          <div class="row p-0 m-1"> 
+              
+               <div class="col"> {{$orders->links()}}</div>
+              <div class="col">
+                <form method="POST" action="{{ route('client.searchbyidgrid') }}" class="form-inline">
+                    @csrf
+                    <div class="form-group">
+                    <input type="number" name="searchById" class="form-control" placeholder="Search By Id" required>
+                  
+                    <button type="submit" class="buttons btn btn-primary" style="height: 38px">Search</button>
+                    </div>
+                </form>
+              </div>
+              
+            </div>
           @php 
             $numOfCols= 3;                                            
             $rowCount = 0;                          
@@ -29,12 +44,7 @@
                   </div>
                 </div>       
             @endif
-            <div class="row p-0 m-1"> 
-              
-                {{$orders->links()}}
-              
-              
-            </div>
+            
             
             <div class="row">
               @foreach($orders as $order)

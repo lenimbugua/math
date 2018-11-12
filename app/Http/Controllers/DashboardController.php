@@ -142,6 +142,21 @@ class DashboardController extends Controller
         
         return view('dashboard')->with(['files'=>$files,'orders'=>$order]);
     }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function searchById(Request $request)
+    {
+        $orderId = $request->input('searchById');
+        $user_id = auth()->user()->id;
+        $orders = Order::orderBy('created_at', 'desc')->where([['id', $orderId],['user_id',$user_id]])->paginate(15);       
+
+        $files = File::all();
+        
+        return view('dashboard')->with(['files'=>$files, 'orders'=>$orders]);
+    }
 
     /**
      * Display a listing of the resource.

@@ -125,3 +125,5 @@ Route::get('createrevisions/{id}', 'RevisionsController@create')->name('revision
  //search by id
 
 Route::post('searchbyidclientlistlayout', 'DashboardController@searchByIdListLayout')->name('client.searchbyidlist');
+
+Route::post('searchbyidclientgridlayout', 'DashboardController@searchById')->name('client.searchbyidgrid');
