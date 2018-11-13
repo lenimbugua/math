@@ -98,6 +98,8 @@ class OrdersController extends Controller
                 $file->size =$filesize;
                 $file->original_name =$filename;
                 $file->question_or_answer ='question';
+                $file->revision_or_order ='order';
+                $file->editable =1;
                 $file->order_id =$order->id;
                 $file->save();
             }
@@ -208,12 +210,20 @@ class OrdersController extends Controller
 
     public function approve($id)
     {
-        $orders = Order::find($id);
+        $order = Order::find($id);
 
-        $orders->approved=1;
-        $orders->save();
+        $order->approved=1;
+        $order->save();
         $files = File::where('order_id' , $id)->get();
-        return view('pages.clients.orders.show.files')->with(['id'=> $id,'files'=>$files]);
+        
+       
+        if ($order->approved) {
+            $files = File::where([['order_id' , $id],['editable', true]])->get();
+        }
+        else{
+             $files = File::where([['order_id' , $id],['editable', false]])->get();
+        }
+        return view('pages.clients.orders.show.files')->with(['id'=> $id,'files'=>$files, 'order'=>$order]);
         
     }
 

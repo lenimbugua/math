@@ -88,8 +88,8 @@ class RevisionsController extends Controller
     public function show($id)
     {
         $revisions = Revision::find($id);
-        
-        return view('pages.clients.orders.show.show_revision')->with(['id'=>$id, 'revisions'=>$revisions]);
+        $orderId = $revisions->order_id;
+        return view('pages.clients.orders.show.show_revision')->with(['id'=>$id,'orderId'=>$orderId, 'revisions'=>$revisions]);
     }
 
     /**

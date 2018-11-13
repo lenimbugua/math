@@ -33,7 +33,21 @@
                 <div class="col-10" >                                    
                     <div class="dashboard-contents">
                      
-                        <div class="dashboard-data">                        
+                        <div class="dashboard-data">
+                        <div class="row p-4">
+                          <div class="col"> {{$orders->links()}}</div>
+                          <div class="col">
+                            <form method="POST" action="{{ route('admin.searchbyidgrid') }}" class="form-inline">
+                                @csrf
+                                <div class="form-group">
+                                <input type="number" name="searchById" class="form-control" placeholder="Search By Id" required>
+                              
+                                <button type="submit" class="buttons btn btn-primary" style="height: 38px">Search</button>
+                                </div>
+                            </form>
+                          </div> 
+                        </div> 
+                                               
                         @php 
                           $numOfCols= 3;                                            
                           $rowCount = 0;                          
@@ -59,13 +73,15 @@
                               session(['cost' => $order->cost]);
                               session(['id' => $order->id]);
                             @endphp
-                          <div class="col-md-4"> 
+                          <div class="col-md-4">
+
                             <div class="card mb-3" style="width: 18rem;">
                               <div class="pl-card-header">
                                 
                               </div>
                                 
                                 <div class="card-body">
+                                  <a href="{{ route('adminfunctions.show',$order->id) }}">Order #{{$order->id}}  </a>
                                   @include('includes.modals.admin_edit_progress')
                                   <p class="card-text">
                                     <small><strong>created</strong> {{$order->created_at}}</small><br>

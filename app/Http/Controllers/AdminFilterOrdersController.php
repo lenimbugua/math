@@ -108,6 +108,28 @@ class AdminFilterOrdersController extends Controller
         
         return view('admin')->with(['orders'=>$orders]);
     }
+    public function searchByIdListLayout(Request $request)
+    {
+        $orderId = $request->input('searchById');
+        
+        $orders = Order::orderBy('created_at', 'desc')->where([['id', $orderId]])->paginate(15);       
+
+        JavaScript::put([        
+            'orders' => $orders,                
+        ]);
+        
+        return view('admin')->with(['orders'=>$orders]);
+    }
+    public function searchById(Request $request)
+    {
+        $orderId = $request->input('searchById');
+        
+        $orders = Order::orderBy('created_at', 'desc')->where([['id', $orderId]])->paginate(15);       
+
+        $files = File::all();
+        
+        return view('pages.admin.orders.grid_dashboard')->with(['files'=>$files, 'orders'=>$orders]);
+    }
 
     public function allGridLayout()
     {

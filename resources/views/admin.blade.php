@@ -40,11 +40,24 @@
                   <div class="dashboard-contents">
                    
                       <div class="dashboard-data">
-
+                        <div class="row p-2">
+                          <div class="col">{{$orders->links()}}</div>
+                          <div class="col">
+                             <form method="POST" action="{{ route('admin.searchbyidlist') }}" class="form-inline">
+                              @csrf
+                              <div class="form-group">
+                              <input type="number" name="searchById" class="form-control" placeholder="Search By Id" required>
+                            
+                              <button type="submit" class="buttons btn btn-primary" style="height: 38px">Search</button>
+                              </div>
+                          </form>
+                          </div>
+                        </div>
+                         
                         <?php
                           $count = 0;
                         ?>
-                        Go to page {{$orders->links()}}
+                        
                           <div class="card">
                         @foreach($orders as $order)
 

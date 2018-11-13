@@ -1,7 +1,7 @@
   
   <a id="bgblue" class="buttons float-right" data-toggle="modal" data-target="#payModal{{$count}}" href="" data-count="{{$count}}" onclick="payment(this.dataset.count)"  >
                                                         
-    <i class="fas fa-money-check-alt"></i>Pay
+    Pay Now
   </a>                                          
  
 

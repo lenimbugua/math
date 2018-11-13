@@ -156,13 +156,13 @@ class AdminController extends Controller
         $order = Order::find($id);
         $orders = Order::orderBy('created_at', 'desc') ->paginate(4);
         //check if the user uploaded files
-        if ($request->input('progress')==100 and !$request->hasFile('files')) {
+        if ($request->input('progress')==100 and !$request->hasFile('files')and !$request->hasFile('editablefiles')) {
             // return view('admin')->with(['orders'=>$orders, 'error'=>"please upload files"]);
             return 'no';
         }
 
         
-        //store file
+        //store non-editable file
 
         if ($request->hasFile('files')) { 
            foreach ($request->file('files') as $file) {
@@ -178,6 +178,28 @@ class AdminController extends Controller
                 $file->question_or_answer='answer';
                 $file->revision_or_order='order';
                 $file->editable=0;
+                $file->order_id =$order->id;
+                $file->save();
+            }
+            
+        }
+
+        //store editable file
+
+        if ($request->hasFile('editablefiles')) { 
+           foreach ($request->file('editablefiles') as $file) {
+            
+                $filesize=$file->getClientSize();            
+                $filename = $file->getClientOriginalName();
+                $path = $file->store('public/fullfilled');                
+                
+                $file = new File;
+                $file->path =$path;
+                $file->size =$filesize;
+                $file->original_name=$filename;
+                $file->question_or_answer='answer';
+                $file->revision_or_order='order';
+                $file->editable=1;
                 $file->order_id =$order->id;
                 $file->save();
             }

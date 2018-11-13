@@ -75,8 +75,15 @@ class DashboardController extends Controller
     public function showFiles($id)
     {
         
-        $files = File::where('order_id' , $id)->get();
-        return view('pages.clients.orders.show.files')->with(['id'=> $id,'files'=>$files]);
+        
+        $order = Order::find($id);
+        if ($order->approved) {
+            $files = File::where([['order_id' , $id],['editable', true]])->get();
+        }
+        else{
+             $files = File::where([['order_id' , $id],['editable', false]])->get();
+        }
+        return view('pages.clients.orders.show.files')->with(['id'=> $id,'files'=>$files, 'order'=>$order]);
     }
 
     /**

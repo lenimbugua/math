@@ -36,11 +36,19 @@
             )}}           
           </div>
       </div>
-      <div class="form-group row" id="visibilityhidden{{$count}}" hidden>
-          {{Form::label('files', 'Upload Files', ['class'=>'col-sm-4 col-form-label'])}} 
+      <div id="visibilityhidden{{$count}}" hidden>
+        <div class="form-group row">
+          {{Form::label('files', 'Upload Non-Editable Files', ['class'=>'col-sm-4 col-form-label'])}} 
           <div class="col-sm-8">
             {{Form::file('files[]', ['id'=>'file','class'=>'form-control buttons','multiple'])}}   
           </div>
+        </div>
+        <div class="form-group row">
+          {{Form::label('editablefiles', 'Upload Editable Files', ['class'=>'col-sm-4 col-form-label'])}} 
+          <div class="col-sm-8">
+            {{Form::file('editablefiles[]', ['id'=>'editablefile','class'=>'form-control buttons','multiple'])}}   
+          </div>
+        </div>
       </div>  
       
       </div>

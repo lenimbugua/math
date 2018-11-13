@@ -122,8 +122,14 @@ Route::get('revisions/{id}', 'RevisionsController@index')->name('revisions.index
 Route::get('createrevisions/{id}', 'RevisionsController@create')->name('revisions.create');
  Route::resource('revision', 'RevisionsController');
 
+
+Route::get('approve/{id}', 'OrdersController@approve')->name('approve');
  //search by id
 
 Route::post('searchbyidclientlistlayout', 'DashboardController@searchByIdListLayout')->name('client.searchbyidlist');
 
 Route::post('searchbyidclientgridlayout', 'DashboardController@searchById')->name('client.searchbyidgrid');
+
+Route::post('searchbyidadminlistlayout', 'AdminFilterOrdersController@searchByIdListLayout')->name('admin.searchbyidlist');
+
+Route::post('searchbyidadmingridlayout', 'AdminFilterOrdersController@searchById')->name('admin.searchbyidgrid');
