@@ -133,3 +133,12 @@ Route::post('searchbyidclientgridlayout', 'DashboardController@searchById')->nam
 Route::post('searchbyidadminlistlayout', 'AdminFilterOrdersController@searchByIdListLayout')->name('admin.searchbyidlist');
 
 Route::post('searchbyidadmingridlayout', 'AdminFilterOrdersController@searchById')->name('admin.searchbyidgrid');
+
+//contacts and abuse reports
+Route::resource('contactmessages', 'ContactsController');
+
+Route::get('listcontacts', 'AdminController@listContacts')->name('contacts.list');
+
+Route::get('/mail', function(){
+	return new App\Mail\NewOrderNotificationClient();
+});

@@ -221,10 +221,19 @@ class AdminController extends Controller
     
     }
 
-    public function updateProgress(Request $request, $id)
+    public function listContacts()
     {
+        $contacts = Contact::orderBy('created_at', 'desc')->paginate(15);
+
+         JavaScript::put([        
+            'contacts' => $contacts,                
+        ]);
+
         
+        return view('pages.admin.posts.list_contact_messages')->with(['contacts'=>$contacts]);
     }
+
+    
 
     /**
      * Remove the specified resource from storage.

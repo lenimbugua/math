@@ -26,6 +26,9 @@
                       <li class="list-group-item client-side-menu-hover">
                        <i class="fas fa-money-check-alt"></i> <a href="{{route('admin.orders.unpaid.gridlayout')}}">Unpaid orders</a>  
                       </li>
+                      <li class="list-group-item client-side-menu-hover">
+                       <i class="fas fa-money-check-alt"></i> <a href="{{route('contactmessages.index')}}">Contact Messages</a>  
+                      </li>
                       
                     </ul>
                   </div>

@@ -37,9 +37,9 @@
         		<div class="col-md-6">
         			<h2><strong>Send us a message</strong></h2>
 					You can contact us with anything related to our Products. We'll get in touch with you as soon as possible. 
-					
+						@include('includes.messages')
 						<div style="margin: 15px">
-							{!! Form::open(['action' => 'BlogController@store', 'method' => 'POST']) !!}
+							{!! Form::open(['action' => 'ContactsController@store', 'method' => 'POST']) !!}
 						<div class="form-group row">
 					       {{Form::label('name', 'Your Name', ['for'=>'name','class'=>'font-weight-bold'])}} 
 						   
@@ -58,7 +58,8 @@
 						<div class="form-group row">
 					    	{{Form::label('message', 'Your Message', ['for'=>'message','class'=>'font-weight-bold'])}} 
 						   
-						    	{{Form::textarea('message', '', ['id'=>'article-ckeditor','class'=>'form-control'])}}	      		
+						    {{Form::textarea('message', '', ['id'=>'article-ckeditor','class'=>'form-control'])}}
+						    {{Form::hidden('category', 'contactus', ['id'=>'category','class'=>'form-control'])}}	      		
 						    
 						</div> 
 						
