@@ -198,12 +198,13 @@ class OrdersController extends Controller
         $user_id = auth()->user()->id;
         $user=User::find($user_id);
         $files = File::where('order_id', '==', $id)->get();
+        $orders = Order::where('user_id', $user_id)->orderBy('created_at', 'desc')->paginate(15);
 
         if ($amountPaid < $cost) {
             return redirect('/payment')->with(['success'=>'Your order has been successfully edited','deficit'=>$deficit, 'cost'=>$cost,'last_insert_id' => $orders->id]);
         }
         else{
-           return view('dashboard')->with(['orders'=> $user->orders, 'files'=>$files]); 
+           return view('dashboard')->with(['orders'=> $orders, 'files'=>$files]); 
         }
         
     }

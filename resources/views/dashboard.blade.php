@@ -14,10 +14,8 @@
           @include('includes.sidebars.client_dashboard_sidebar')
         </div>
         <div class="col-10 pl-3">
-          <div class="row p-0 m-1"> 
-              
-               <div class="col"> {{$orders->links()}}</div>
-              <div class="col">
+          <div class="row p-0 m-1">              
+              <div class="col-md-6">
                 <form method="POST" action="{{ route('client.searchbyidgrid') }}" class="form-inline">
                     @csrf
                     <div class="form-group">
@@ -27,7 +25,7 @@
                     </div>
                 </form>
               </div>
-              
+              <div class="col-md-6"> {{$orders->links()}}</div>
             </div>
           @php 
             $numOfCols= 3;                                            

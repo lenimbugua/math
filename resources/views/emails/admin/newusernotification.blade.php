@@ -1,11 +1,11 @@
 @component('mail::message')
-# Introduction
+# New user notification
+{{$user->name}}
 
-The body of your message.
+{{$user->email}}
 
-@component('mail::button', ['url' => ''])
-Button Text
-@endcomponent
+User Id: {{$user->id}}
+
 
 Thanks,<br>
 {{ config('app.name') }}

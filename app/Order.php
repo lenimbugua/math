@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
 	protected $dispatchesEvents = [
-        // 'created'=> Events\NewOrder::class,
-        'updating'=>Events\OrderEdited::class,
+        'created'=> Events\NewOrder::class,
+        'updated'=>Events\OrderEdited::class,
     ];
     public function user(){
     	return $this->belongsTo('App\User');

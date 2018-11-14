@@ -1,11 +1,10 @@
 @component('mail::message')
-# Introduction
+# Order Edited
+# Id: {{$order->id}}
 
-The body of your message.
-
-@component('mail::button', ['url' => ''])
-Button Text
-@endcomponent
+{{-- By:**{{$user->name}}**
+Email:**{{$user->email}}**
+User Id:**{{$user->id}}** --}}
 
 Thanks,<br>
 {{ config('app.name') }}

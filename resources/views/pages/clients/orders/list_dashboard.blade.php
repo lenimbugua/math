@@ -17,18 +17,24 @@
         @include('includes.sidebars.client_dashboard_sidebar_listlayout')
       </div>
       <div class="col-md-10">
-        <form method="POST" action="{{ route('client.searchbyidlist') }}" class="form-inline">
-            @csrf
-            <div class="form-group">
-            <input type="number" name="searchById" class="form-control" placeholder="Search By Id" required>
-          
-            <button type="submit" class="buttons btn btn-primary" style="height: 38px">Search</button>
-            </div>
-        </form>
+        <div class="row">
+          <div class="col">{{$orders->links()}}</div>
+          <div class="col">
+             <form method="POST" action="{{ route('client.searchbyidlist') }}" class="form-inline">
+                  @csrf
+                  <div class="form-group">
+                  <input type="number" name="searchById" class="form-control" placeholder="Search By Id" required>
+                
+                  <button type="submit" class="buttons btn btn-primary" style="height: 38px">Search</button>
+                  </div>
+              </form>
+          </div>
+        </div>
+       
         <?php
                             $count = 0;
                           ?>
-                          {{$orders->links()}}
+                          
                             <div class="card mt-3">
                               @if ($orders->isEmpty()) 
                                <div class="card">

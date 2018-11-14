@@ -29,7 +29,7 @@ class SendOrderEditedEmail implements ShouldQueue
      */
     public function handle(OrderEdited $event)
     {
-         Mail::to($event->order->user->email)->send(new OrderEditedNotificationClient($event->order));
-         Mail::to('admin@prontolabs.io')->send(new OrderEditedNotificationAdmin($event->order));
+         Mail::to($event->order->user->email)->send(new OrderEditedNotificationClient($event->order, $event->user));
+         Mail::to('admin@prontolabs.io')->send(new OrderEditedNotificationAdmin($event->order, $event->user));
     }
 }
