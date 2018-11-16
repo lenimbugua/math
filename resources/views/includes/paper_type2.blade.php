@@ -3,7 +3,11 @@
 		   <div class="col-sm-10">
 		    	{{Form::select(
 		    		'papertype',		    		
-		    		['Admission Essay' => 'Admission Essay',
+		    		['Accounting Problem'=>'Accounting Problem',
+                     'Mathematical Problem'=>'Mathematical problem',
+                     'Statistics Problem' =>'Statistics Problem',
+                     'Technical Paper'=>'Technical Paper',
+		    		 'Admission Essay' => 'Admission Essay',
 		    		 'Annotated Bibliography'=>'Annotated Bibliography',
 		    		 'Application Letter'=>'Application Letter',
 		    		 'Argumentative Essay'=>'Argumentative Essay',
@@ -44,7 +48,7 @@
 		    		 'Thesis Statement'=>'Thesis Statement'
 		    		 		    		    		 		    		 
 		    		], 
-		    		 'Course Work',
+		    		 'Statistics Problem',
 		    		 ['class'=>'form-control','onchange'=>'paperType()']
 		    	)}}	      		
 		    </div>

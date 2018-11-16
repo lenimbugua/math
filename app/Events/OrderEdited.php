@@ -10,23 +10,22 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use App\Order;
-use App\User;
 
 class OrderEdited
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
     public $order;
-    public $user;
+   
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Order $order, User $user)
+    public function __construct(Order $order)
     {
         $this->order = $order;
-        $this->user = $user;
+       
     }
 
     /**

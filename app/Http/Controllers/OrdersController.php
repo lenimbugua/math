@@ -9,6 +9,7 @@ use App\File;
 use Illuminate\Support\Str;
 
 
+
 class OrdersController extends Controller
 {
     /**
@@ -28,6 +29,7 @@ class OrdersController extends Controller
      */
     public function index()
     {
+        
         $id = auth()->user()->id;
         $orders = Order::where('user_id', '==', $id)->orderBy('created_at', 'desc')->paginate(2);
         // $orders = Order::all();

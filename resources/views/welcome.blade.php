@@ -69,7 +69,7 @@
                 </h4>             
               </div>
               <div class="total-cost">
-                <h3 id="totalcost">$ 8.00</h3>
+                <h3 id="totalcost">$ 19.00</h3>
               </div>
                <div class="calculator-options">
                 <div class="academic-level">

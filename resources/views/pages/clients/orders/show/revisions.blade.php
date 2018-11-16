@@ -18,12 +18,12 @@
       <li class="nav-item">
         <a class="nav-link text-primary" href="{{ route('client.showfiles') }}/{{$id}}">Files</a>
       </li>
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link text-primary" href="{{ route('client.ordermessages') }}/{{$id}}">Messages</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-primary" href="{{ route('chat',['id'=>$id]) }}">Chat</a>
-      </li>
+      </li> --}}
 
       <li class="nav-item">
         <a class="nav-link active bg-active-grey" href="#">Revisions</a>

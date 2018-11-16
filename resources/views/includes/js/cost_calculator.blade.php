@@ -137,7 +137,7 @@
 
     function calculateCost2(){
         document.getElementById('add').disabled=false;
-        let cost = 20;
+        let cost = 19;
         
         
         cost += deadline();
@@ -162,8 +162,19 @@
           case 'Personal Statement':
            
           case 'Recommendation Letter':
-            
+
           case 'Resume':
+
+          case 'Accounting Problem':
+           
+          case 'Statistics Problem':
+           
+          case 'Mathematical Problem':
+
+          case 'Technical Paper':
+
+          case 'Problem Solving':            
+          
             document.getElementById('hiddentotalcost').value = calculateCost2();
             document.getElementById('totalcost').innerHTML = "$ "+calculateCost2()+".00";
             break;

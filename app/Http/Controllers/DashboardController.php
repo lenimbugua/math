@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\User;
 use App\Order;
 use App\File;
 use JavaScript;
+
 
 class DashboardController extends Controller
 {
@@ -27,6 +29,9 @@ class DashboardController extends Controller
      */
     public function index()
     {
+
+        
+
         $user_id = auth()->user()->id;
          $orders = Order::orderBy('created_at', 'desc')->where([['user_id',$user_id]])->paginate(15);
 

@@ -3,6 +3,10 @@
     <form>
     <label for="papertype" class="mb-0"><small><strong>Paper Type</strong></small></label>                                      
       <select class="form-control" id="papertype" onchange="paperType()">
+        <option value="Accounting Problem">Accounting Problem</option>
+        <option value="Mathematical Problem">Mathematical problem</option>
+        <option value="Statistics Problem" selected="selected">Statistics Problem</option>
+        <option value="Technical Paper">Technical Paper</option>
         <option value="Admission Essay">Admission Essay</option>
         <option value="Annotated Bibliography">Annotated Bibliography</option>
         <option value="Application Letter">Application Letter</option>
@@ -12,7 +16,7 @@
         <option value="Biography">Biography</option>
         <option value="Business Plan">Business Plan</option>
         <option value="Case Study">Case Study</option>
-        <option value="Course Work" selected="selected">Course Work</option>
+        <option value="Course Work" >Course Work</option>
         <option value="Cover Letter">Cover Letter</option>
         <option value="Creative Writing">Creative Writing</option>
         <option value="Critical Thinking">Critical Thinking</option>
