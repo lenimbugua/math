@@ -1,6 +1,9 @@
-<div class="form-group row">
-	       {{Form::label('subject', 'Subject', ['class'=>'col-sm-2 col-form-label'])}} 
-		   <div class="col-sm-10">
+
+
+
+<div class="form-group">
+	       {{Form::label('subject', 'Subject', ['class'=>'col-form-label'])}} 
+		   
 		    	{{Form::select(
 		    		'subject',		    		
 		    		['Mathematics' => 'Mathematics',
@@ -59,5 +62,5 @@
 		    		 $orders->subject,
 		    		 ['class'=>'form-control']
 		    	)}}	      		
-		    </div>
+		    
 		</div>

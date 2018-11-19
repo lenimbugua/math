@@ -6,17 +6,17 @@
     <ul class="nav nav-tabs card-header-tabs d-flex justify-content-between">
     <div >
       <li class="nav-item">
-        <a class="nav-link text-primary" href="{{route('client.dashboard')}}">Back</a>
+        <a class="nav-link text-whiten" href="{{route('client.dashboard')}}">Back</a>
       </li>
      
       
     </div>
     <div class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
-        <a class="nav-link text-primary" href="/dashboard/{{$id}}">Details</a>
+        <a class="nav-link text-whiten" href="/dashboard/{{$id}}">Details</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-primary" href="{{ route('client.showfiles') }}/{{$id}}">Files</a>
+        <a class="nav-link text-whiten" href="{{ route('client.showfiles') }}/{{$id}}">Files</a>
       </li>
       {{-- <li class="nav-item">
         <a class="nav-link text-primary" href="{{ route('client.ordermessages') }}/{{$id}}">Messages</a>
@@ -32,10 +32,7 @@
     </div>
     <div class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
-        <a class="nav-link text-primary" href="#">Edit</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link text-danger" href="{{ route('client.showfiles') }}/{{$id}}">Delete</a>
+        
       </li>
       
     </div>

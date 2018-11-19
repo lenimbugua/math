@@ -1,28 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="client-login-card-header">
-            <div class="d-flex justify-content-between">
-                <a  class="btn btn-link text-light" href="{{ route('home') }}">
-                    {{ __('Home') }}                
-                </a>
-                <a  class="btn btn-link text-light" href="{{ route('register') }}">
-                    <strong><i class="fas fa-user-edit"></i>{{ __('Register') }}</strong>
-                </a>
+        <div class="row no-gutter">        
+            <div class="auth-login-banner">
+                <nav class="navbar fixed-top navbar-expand-lg navbar-light legal " >  
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                              <a class="nav-link text-light" href="home">Home <span class="sr-only">(current)</span></a>
+                            </li>                   
+                        </ul>                  
+                    </div>
+                </nav>     
             </div>
-            
-            
-            
-        </div>
-        <div class="login-card-wrapper " id ="login-card-wrapper">
-            
-                <div class="login-card">
-
-                    
-
-                    <div class="login-card-body">
-                        <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
+        </div>          
+        <div class="auth-form-wrapper">
+            <div class="row d-flex justify-content-center"><h3>Login Form</h3></div>
+            <div class="row d-flex justify-content-center">
+                <div class="auth-form ">
+                    <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group row">
@@ -53,7 +52,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
+                            <div class="form-group row mb-1">
                                 <div class="col-md-6 offset-md-4">
                                     <div class="checkbox">
                                         <label>
@@ -63,17 +62,17 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row mb-3">
+                            <div class="form-group row mb-1 d-flex justify-content-center">
                                
                                     
-                                    <button id="green" type="submit" class=" buttons btn btn-lg btn-block">
+                                    <button id="green" type="submit" class=" buttons btn btn-lg ">
                                         {{ __('Login') }}
                                     </button>                              
                                 
                             </div>
 
                             <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-3">
+                                <div class="col-md-6 offset-md-1">
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
@@ -93,12 +92,16 @@
                                 
                             </div>
                         </form>
-                    </div>
                 </div>
-        
-    </div>
-    </div>
-        
-        
-  @include('includes.footer')
+            </div>           
+        </div>        
+       
+
 @endsection
+
+
+
+
+
+
+

@@ -26,29 +26,6 @@
                       <i class="fas fa-th"></i>
                   </a>
                 </li>
-                
-               
-                
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                   {{ Auth::user()->name }} <span class="caret"></span>
-                  </a>
-
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ url('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                    </a>
-                    <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                    
-                  </div>
-                </li>        
-                    
-                
-                
             </ul>
         </div>
    </nav>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Notifications\ProgressUpdate;
 use App\User;
 use App\Order;
 use App\File;
@@ -120,9 +121,9 @@ class AdminController extends Controller
     public function showFiles($id)
     {
         
-        
+        $order = Order::find($id);
          $files = File::where('order_id','=',$id)->get();
-        return view('pages.admin.orders.show.files')->with(['id'=> $id,'files'=>$files]);
+        return view('pages.admin.orders.show.files')->with(['id'=> $id,'files'=>$files, 'order'=>$order]);
     }
 
     /**
@@ -215,6 +216,12 @@ class AdminController extends Controller
         // $orders = Order::all();
         $orders = Order::orderBy('created_at', 'desc') ->paginate(4);
         $files = File::orderBy('created_at', 'desc');
+        $user = User::find($order->user_id);
+
+        //send progress update notification
+        \Notification::route('mail', 'info@prontolabs.com')
+            ->route('mail', $user->email)
+            ->notify(new ProgressUpdate($user, $order));
 
         //return $orders and files;
         return view('pages.admin.orders.grid_dashboard')->with(['orders'=> $orders, 'files'=>$files]);

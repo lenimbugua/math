@@ -1,14 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
+        <div class="row no-gutter">        
+            <div class="legal-banner">
+                <nav class="navbar fixed-top navbar-expand-lg navbar-light legal " >  
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                              <a class="nav-link text-light" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
+                            </li>                   
+                        </ul>                  
+                    </div>
+                </nav>     
+            </div>
+        </div>          
+        <div class="auth-form-wrapper">
+            <div class="row d-flex justify-content-center"><h3>Reset Password</h3></div>
+            <div class="row d-flex justify-content-center">
+                <div class="auth-form ">
+                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
@@ -40,8 +53,10 @@
                         </div>
                     </form>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
+            </div>           
+        </div>        
+       
+
 @endsection
+
+

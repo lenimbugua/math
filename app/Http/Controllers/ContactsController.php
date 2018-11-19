@@ -23,7 +23,7 @@ class ContactsController extends Controller
         ]);
 
         
-        return view('pages.admin.posts.list_contact_messages')->with(['contacts'=>$contacts]);
+        return view('pages.admin.contacts.list_contact_messages')->with(['contacts'=>$contacts]);
     }
 
     /**
@@ -33,7 +33,7 @@ class ContactsController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -78,7 +78,9 @@ class ContactsController extends Controller
      */
     public function show($id)
     {
-        //
+        $contact = Contact::find($id);
+       
+        return view('pages.admin.contacts.show_contact_message')->with([ 'contact'=>$contact]);
     }
 
     /**
@@ -102,6 +104,24 @@ class ContactsController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    /**
+     * Display a specified resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function searchByEmail(Request $request)
+    {
+        $email = $request->input('searchByEmail');
+        
+        $contacts = Contact::orderBy('created_at', 'desc')->where([['email', $email]])->paginate(15);       
+
+        JavaScript::put([        
+            'contacts' => $contacts,                
+        ]);
+        
+        return view('pages.admin.contacts.list_contact_messages')->with(['contacts'=>$contacts]);
     }
 
     /**

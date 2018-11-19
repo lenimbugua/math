@@ -10889,7 +10889,7 @@ div.end-footer-content > p {
 }
 
 .dashboard-container {
-  background: #EDF4F9;
+  background: radial-gradient(ellipse at center, #585858 0, #232323 100%);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -10926,8 +10926,31 @@ div.end-footer-content > p {
   color: #000000;
 }
 
+.bg-black {
+  background: radial-gradient(ellipse at center, #585858 0, #232323 100%);
+}
+
 .bg-sidebar {
-  background: #C4D5BC;
+  background: inherit;
+  color: #ffffff;
+}
+
+.bg-sidebar-first {
+  background: #3FE0D0;
+  color: #000000;
+}
+
+.text-whiten {
+  color: #ffffff;
+}
+
+.text-whiten:hover {
+  color: #000000;
+}
+
+.dashboard-data {
+  background: #EDF4F9;
+  padding: 1rem 1rem 20rem 1rem;
 }
 
 .buttons {
@@ -10954,8 +10977,7 @@ div.end-footer-content > p {
 }
 
 .login-card-wrapper {
-  min-height: 80%;
-  min-width: 100%;
+  width: 100%;
   padding: 1rem;
   background: #EDF4F9;
   background-size: cover;
@@ -10966,7 +10988,6 @@ div.end-footer-content > p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  /*padding-top: 3rem;*/
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -10977,7 +10998,6 @@ div.end-footer-content > p {
   background: -webkit-gradient(linear, left top, right top, from(#ee524f), to(#d53131));
   background: linear-gradient(to right, #ee524f, #d53131);
   color: #ffffff;
-  /*opacity: 0.6;*/
   border-radius: 5px;
   margin: -1.5rem 0 4rem 0;
   height: 3rem;
@@ -11033,13 +11053,28 @@ div.end-footer-content > p {
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-#login-card-wrapper {
-  margin-bottom: 10rem;
+.auth-form-wrapper {
+  background: #F2F6F7;
+  padding: 1% 3% 3% 3%;
 }
 
-#register-card-wrapper {
+.auth-form {
   background: #EDF4F9;
-  margin-bottom: 10rem;
+  padding: 3% 2% 3% 2%;
+}
+
+.auth-banner {
+  height: 20rem;
+  width: 100%;
+  background: url(/images/students11.jpg?b501bc7d0116fd5a79b56e4dcf5fc970) no-repeat center center fixed;
+  background-size: cover;
+}
+
+.auth-login-banner {
+  height: 25rem;
+  width: 100%;
+  background: url(/images/students5.jpg?76a8bdb904ca49a35ac0920c013e3c02) no-repeat center center fixed;
+  background-size: cover;
 }
 
 #card,
@@ -11429,8 +11464,13 @@ div.end-footer-content > p {
   color: #ffffff;
 }
 
-.order-page {
-  padding: 10% 10% 3% 0;
+.order-forms {
+  padding: 1% 1% 30% 5%;
+  background: #EDF4F9;
+}
+
+.cards-accepted {
+  padding: 0 20% 1% 20%;
 }
 
 .show-order-item {
@@ -11533,14 +11573,14 @@ div.end-footer-content > p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 10%;
+  margin-top: 27%;
   border-radius: 50% !important;
   -webkit-box-shadow: inset 0px 3px 0 rgba(255, 255, 255, 0.3), 0 3px 3px rgba(0, 0, 0, 0.3);
           box-shadow: inset 0px 3px 0 rgba(255, 255, 255, 0.3), 0 3px 3px rgba(0, 0, 0, 0.3);
   font-weight: bold;
   text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.65);
   position: fixed;
-  right: 2rem;
+  right: 2%;
   height: 6rem;
   width: 6rem;
   font-size: 1rem;
@@ -11572,7 +11612,8 @@ div.end-footer-content > p {
 }
 
 .fixed-header {
-  background: #CADCC2;
+  background: #3575D3;
+  padding-right: 30px;
 }
 
 .messaging-form {
@@ -11581,6 +11622,7 @@ div.end-footer-content > p {
 
 .message-body {
   background: #EDF4F9;
+  background: radial-gradient(ellipse at center, #EDF4F9 0, #EDF4F9 100%);
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
@@ -11650,5 +11692,27 @@ div.end-footer-content > p {
 
 .revision-form-wrapper {
   background: #ffffff;
+}
+
+.font1 {
+  font-size: 0.75rem;
+  line-height: 1.55em;
+  font-weight: 500;
+  font-family: Roboto,Helvetica,Arial,sans-serif;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.font2 {
+  font-weight: 500;
+}
+
+.font3 {
+  font-weight: 700;
+  font-family: Roboto Slab,Times New Roman,serif;
+  font-size: 1.5625rem;
+  line-height: 1.4em;
+  color: #3c4858;
+  text-decoration: none;
 }
 

@@ -51,12 +51,7 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
    
     
-    <!-- Full bundle -->
-    {{-- <script src="https://unpkg.com/buefy/dist/buefy.min.js"></script> --}}
-
-    <!-- Individual components -->
-    
-  {{-- @include('includes.notifications.toast') --}}
+   
     
     
 </body>

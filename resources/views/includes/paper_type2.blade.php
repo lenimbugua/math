@@ -1,6 +1,5 @@
-<div class="form-group row">
-	       {{Form::label('papertype', 'Type of Paper', ['class'=>'col-sm-2 col-form-label'])}} 
-		   <div class="col-sm-10">
+<div class="form-group">
+	       {{Form::label('papertype', 'Type of Paper', ['class'=>' col-form-label font2'])}}  		   
 		    	{{Form::select(
 		    		'papertype',		    		
 		    		['Accounting Problem'=>'Accounting Problem',
@@ -51,7 +50,7 @@
 		    		 'Statistics Problem',
 		    		 ['class'=>'form-control','onchange'=>'paperType()']
 		    	)}}	      		
-		    </div>
+		    
 		</div>	
        
         

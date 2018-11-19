@@ -11,12 +11,31 @@
 -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
 box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
 }
-#login-card-wrapper{
-	
-	margin-bottom:10rem;
+.auth-form-wrapper{
+	// background: radial-gradient(ellipse at center,#F2F6F7 0,#d1d1d1 100%);
+	background:#F2F6F7;
+	padding:1% 3% 3% 3%;
 }
-#register-card-wrapper{
-	background: #EDF4F9; 
-  
-	margin-bottom:10rem;
+.auth-form{
+	background: #EDF4F9;
+	padding: 3% 2% 3% 2%;  
+	
+}
+.auth-banner{
+	height:20rem;
+	width:100%;
+	background: url(images/students11.jpg)no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+}
+.auth-login-banner{
+	height:25rem;
+	width:100%;
+	background: url(images/students5.jpg)no-repeat center center fixed; 
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
 }

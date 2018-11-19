@@ -42,12 +42,10 @@
                             <div class="form-group row mb-3">
                                
                                     <div class="col">
-                                        <button type="submit" class="nav-login-register-button buttons">
-                                            {{ __('Login') }}
-                                        </button> 
+                                        
                                     </div>
                                     <div class="col">
-                                        <button type="submit" class="buttons nav-login-register-button">
+                                        <button type="submit" class="buttons btn">
                                             {{ __('Login') }}
                                         </button>
                                     </div>

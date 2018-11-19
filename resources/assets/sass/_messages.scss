@@ -20,13 +20,15 @@
 	padding:1rem 25% 1rem 25%;
 }
 .fixed-header{
-	background:#CADCC2;
+	background:#3575D3;	
+	padding-right:30px;
 }
 .messaging-form{
 	background:#C4D5BC;
 }
 .message-body{
 	background:#EDF4F9;
+	background: radial-gradient(ellipse at center,#EDF4F9 0,#EDF4F9 100%);
 	// background: url(images/chat3.jpg);
 	background-attachment: fixed;
 	background-size: cover;

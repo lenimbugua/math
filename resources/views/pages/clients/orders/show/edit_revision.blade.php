@@ -6,7 +6,7 @@
     <ul class="nav nav-tabs card-header-tabs d-flex justify-content-between">
     <div >
       <li class="nav-item">
-        <a class="nav-link text-primary" href="{{ route('revision.show',['id'=>$revisions->id]) }}">Back</a>
+        <a class="nav-link text-whiten" href="{{ route('revision.show',['id'=>$revisions->id]) }}">Back</a>
       </li>
      
       

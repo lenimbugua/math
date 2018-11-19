@@ -6,14 +6,14 @@
       <ul class="nav nav-tabs card-header-tabs d-flex justify-content-between">
     <div >
       <li class="nav-item">
-        <a class="nav-link text-primary" href="{{route('client.dashboard')}}">Back</a>
+        <a class="nav-link text-whiten" href="{{route('client.dashboard')}}">Back</a>
       </li>
      
       
     </div>
     <div class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
-        <a class="nav-link text-primary " href="/dashboard/{{$id}}">Details</a>
+        <a class="nav-link text-whiten " href="/dashboard/{{$id}}">Details</a>
       </li>
       <li class="nav-item">
         <a class="nav-link active bg-active-grey" href="#">Files</a>
@@ -22,17 +22,15 @@
         <a class="nav-link text-primary" href="{{ route('client.ordermessages') }}/{{$id}}">Messages</a>
       </li> --}}
        <li class="nav-item">
-        <a class="nav-link text-primary" href="{{ route('revisions.index',['id'=>$id]) }}">Revisions</a>
+        <a class="nav-link text-whiten" href="{{ route('revisions.index',['id'=>$id]) }}">Revisions</a>
       </li>
       
     </div>
     <div class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
-        <a class="nav-link text-primary" href="#">Edit</a>
+        {{-- <a class="nav-link text-whiten" href="#">Edit</a> --}}
       </li>
-      <li class="nav-item">
-        <a class="nav-link text-danger" href="#">Delete</a>
-      </li>
+      
       
     </div>
   </ul>

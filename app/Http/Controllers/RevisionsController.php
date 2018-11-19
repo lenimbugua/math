@@ -120,13 +120,13 @@ class RevisionsController extends Controller
 
     
         $revisions = Revision::find($id);
-        
+        $orderId = $revisions->order_id;
         $revisions->instructions=$request->input('instructions');
         $revisions->save();
 
        
         
-         return view('pages.clients.orders.show.show_revision')->with(['success'=>'Edited successfully', 'revisions'=>$revisions, 'id'=>$id]);
+         return view('pages.clients.orders.show.show_revision')->with(['success'=>'Edited successfully', 'revisions'=>$revisions, 'id'=>$id,'orderId'=>$orderId]);
     }
 
     /**

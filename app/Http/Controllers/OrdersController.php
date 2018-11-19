@@ -203,7 +203,7 @@ class OrdersController extends Controller
         $orders = Order::where('user_id', $user_id)->orderBy('created_at', 'desc')->paginate(15);
 
         if ($amountPaid < $cost) {
-            return redirect('/payment')->with(['success'=>'Your order has been successfully edited','deficit'=>$deficit, 'cost'=>$cost,'last_insert_id' => $orders->id]);
+            return redirect('/payment')->with(['success'=>'Your order has been successfully edited','deficit'=>$deficit, 'cost'=>$cost,'last_insert_id' => $id]);
         }
         else{
            return view('dashboard')->with(['orders'=> $orders, 'files'=>$files]); 

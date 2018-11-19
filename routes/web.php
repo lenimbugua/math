@@ -117,10 +117,15 @@ Route::get('chat/{id}', 'ChatsController@index')->name('chat');
 Route::get('messages/{id}', 'ChatsController@fetchMessages');
 Route::post('messages', 'ChatsController@sendMessage');
 
-//revision routes
+//revision routes front end
 Route::get('revisions/{id}', 'RevisionsController@index')->name('revisions.index');
 Route::get('createrevisions/{id}', 'RevisionsController@create')->name('revisions.create');
- Route::resource('revision', 'RevisionsController');
+Route::resource('revision', 'RevisionsController');
+
+//revision routes back end
+Route::get('adminrevisions/{id}', 'AdminRevisionController@index')->name('adminrevisions.index');
+
+Route::resource('adminrevision', 'AdminRevisionController');
 
 
 Route::get('approve/{id}', 'OrdersController@approve')->name('approve');
@@ -138,6 +143,12 @@ Route::post('searchbyidadmingridlayout', 'AdminFilterOrdersController@searchById
 Route::resource('contactmessages', 'ContactsController');
 
 Route::get('listcontacts', 'AdminController@listContacts')->name('contacts.list');
+Route::post('searchContactsByEmail', 'ContactsController@searchByEmail')->name('contacts.searchByEmail');
+
+
+//users
+Route::resource('users', 'UserController');
+Route::post('searchByEmail', 'UserController@searchByEmail')->name('users.searchByEmail');
 
 Route::get('/mail', function(){
 	return new App\Mail\NewOrderNotificationClient();

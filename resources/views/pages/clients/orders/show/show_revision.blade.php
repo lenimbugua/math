@@ -6,7 +6,7 @@
     <ul class="nav nav-tabs card-header-tabs d-flex justify-content-between">
     <div >
       <li class="nav-item">
-        <a class="nav-link text-primary" href="{{ route('revisions.index', ['id'=>$orderId] )}}">Back</a>
+        <a class="nav-link text-whiten" href="{{ route('revisions.index', ['id'=>$orderId] )}}">Back</a>
       </li>
      
       
@@ -18,7 +18,7 @@
     </div>
     <div class="nav nav-tabs card-header-tabs">
       <li class="nav-item">
-        <a class="nav-link text-primary" href="{{ route('revision.edit', ['id'=>$orderId]) }}">Edit</a>
+        <a class="nav-link text-whiten" href="{{ route('revision.edit', ['id'=>$id]) }}">Edit</a>
       </li>
       
       {!! Form::open(['action' => ['RevisionsController@destroy', $id], 'method' => 'POST']) !!}

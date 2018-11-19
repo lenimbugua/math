@@ -1,21 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="card">
+  <div class="card bg-black">
     <div class=" fixed-header fixed-top">
        <div class="card-header">
       @include('includes.navtab')
     </div>
     </div>
    
-    <div class="card-body bg-greey ">
+    <div class="card-body bg-greey">
       <div class="row no-gutter">
-        <div class="col-2">
+        <div class="col-2 bg-sidebar">
           @include('includes.sidebars.client_dashboard_sidebar')
         </div>
         <div class="col-10 pl-3">
-          <div class="row p-0 m-1">              
-              <div class="col-md-6">
+          <div class="dashboard-data">
+            <div class="row p-0 m-1">
+            <div class="col-md-6"> {{$orders->links()}}</div>              
+              <div class="col-md-6 d-flex justify-content-end">
                 <form method="POST" action="{{ route('client.searchbyidgrid') }}" class="form-inline">
                     @csrf
                     <div class="form-group">
@@ -25,7 +27,7 @@
                     </div>
                 </form>
               </div>
-              <div class="col-md-6"> {{$orders->links()}}</div>
+              
             </div>
           @php 
             $numOfCols= 3;                                            
@@ -148,7 +150,8 @@
                                   <div class="row">
                                     <div class="col">
                                     @if($order->progress == 100)
-                                         @include('includes.modals.client_dashboard_download_modal')
+                                        <a class="nav-link text-primary" href="{{ route('client.showfiles') }}/{{$order->id}}">Download Files</a>
+                                         
                                     @endif
                                  </div>
                                  <div class="col">
@@ -177,6 +180,8 @@
                             @endif
                         @endforeach 
                         </div> {{-- {{$orders->links()}}  --}}
+          </div>
+          
              
           
         </div>

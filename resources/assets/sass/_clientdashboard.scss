@@ -1,5 +1,7 @@
+
+
 .dashboard-container{
-	background: #EDF4F9;
+	background: radial-gradient(ellipse at center,#585858 0,#232323 100%);
 	background-size: cover;
 	background-repeat: no-repeat;
 }
@@ -35,6 +37,24 @@
 .small-texts{
 	color:#000000;
 }
+.bg-black{
+	background: radial-gradient(ellipse at center,#585858 0,#232323 100%);
+}
 .bg-sidebar{
-	background: #C4D5BC;
+	background:inherit;
+	color: #ffffff;
+}
+.bg-sidebar-first{
+	background:#3FE0D0;
+	color: #000000;
+}
+.text-whiten{
+	color: #ffffff;
+}
+.text-whiten:hover{
+	color: #000000;
+}
+.dashboard-data{
+	background:#EDF4F9;
+	padding: 1rem 1rem 20rem 1rem;
 }
