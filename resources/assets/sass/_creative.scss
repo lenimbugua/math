@@ -1,0 +1,33 @@
+.video-wrap{
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	z-index: -1;
+}
+.vid{
+	width: 100%;
+	padding: 0;
+}
+.video-wrap .video-text{
+	padding:3rem 0 0 0;
+	text-align: center;
+	z-index: 2;
+	height: 20rem;
+	width: 100%;
+	// background: #fff;
+	// opacity:0.85;
+}
+.video-container{
+	position:absolute;
+	width: 100%;
+	
+	
+}
+@media(max-width:960px){
+  .video-wrap .video-text{
+    height: 275px;
+    
+  }
+}

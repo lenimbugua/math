@@ -14,7 +14,7 @@
             <ul class="navbar-nav mr-auto">
               <li>
                     <a class="nav-link" href="{{ route('about') }}">
-                      <i class="fas fa-info-circle"></i></i> About
+                      <i class="fas fa-info-circle"></i> About
                   </a>
                 </li>
                 <li class="nav-item dropdown">

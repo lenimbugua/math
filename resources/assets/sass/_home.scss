@@ -2,6 +2,7 @@
 html, body {
     height: 100%;
     margin: 0;
+
 }
 .row.no-gutter {
   margin-right: 0;
@@ -250,15 +251,22 @@ h3{
 --------------------------------------------------------*/
 .support{	
 	background: #edf4f9;
-	padding: 3rem 10% 0 10%;
+	padding: 3rem 0 0 0;
+	height: 30rem;
 }
 .support-image{
-	height: 27rem;
-	width: 43rem;
-	background: url(images/support.jpg);
+	 height: 30rem;
+	// width: 43rem;
+	background: url(images/support.png);
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 .support-punch-line{
-	padding: 30% 0 0 2%;
+	padding: 10% 0 0 2%;
+	// display: flex;
+	// justify-content: center;
+	// align-items:center;
+	height: 24rem;
 }
 .support-punch-line-header{
 	color: #595187;
@@ -267,22 +275,53 @@ h3{
 	color: #3575d3;
 	/*font-weight: bold;*/
 }
-
+.support-base{
+	width: 100%;
+	height: 3rem;
+	border-top: 1px solid #C3CCD7;
+    background-color: rgba(255, 255, 255, 0.5);
+}
 /*--------------------------------------------------------
 	End section
 --------------------------------------------------------*/
+@mixin dark-overlay{
+  &:after{
+    content: "";
+    width: 100%;
+    height: auto;
+    position: absolute;
+    z-index: -1;  // Take note of this negative z-index and compare to each article's positive z-index. This helps your content to show up over the overlay.
+    top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+  }
+}
+
 .end{
 	/*height: 30rem;*/
-	background: #3575d3;
+	background: #404040;
+	background: url(images/footer.jpg);
+	background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
 
-	font-family: 'Josefin Slab', serif;
-    font-size: 18px;
-    font-weight: 200;
+	font-family: "Open Sans",Arial,sans-serif;
+    font-size: 16px;
     line-height: 1.42857;
-    color: #ffffff;
+    color: #3575D3;
+@include dark-overlay;
 }
+.end:after{
+	background-image: linear-gradient(rgba(0, 0, 0, 0.90), rgba(53, 117, 211, 0.60));
+  // background:rgba(53, 117, 211, 0.75);
+}
+
+
 .end-punchline{
-	height: 13rem;
+	height: 15rem;
 	padding: 2rem;
 	border-right: 1px dotted #a2a2a2;
 }
@@ -298,13 +337,7 @@ div.end-footer-content>p{
 	color: #ffffff;
 	text-align: right;
 }
-.support-base{
-	height: 3rem;
-	border-top:3px solid #f0f3f4;
-	background-color: #ffffff;
-	width: 100%;
-	opacity: 0.8;
-}
+
 
 /*body, html {
   margin: 0;

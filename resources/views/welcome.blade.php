@@ -78,7 +78,7 @@
                     <div class="row">
                       
                       <button type="button" href="#" class="btn round-buttons text-center" onclick="addQuestion()" id="add">+</button>
-                      <input id="numberofpages" type="number" name="numberofpages" min="1" value="1"oninput="paperType()" style="width: 5rem; color: #9C27B0" class="m-2 form-control font-weight-bold">
+                      <input id="numberofpages" type="number" name="numberofpages" min="1" value="1" oninput="paperType()" style="width: 5rem; color: #9C27B0" class="m-2 form-control font-weight-bold">
                       {{-- <div class="round-buttons">0</div> --}}
                       <div class="btn round-buttons" onclick="minusQuestion()">-</div>
                     </div>                                       
@@ -219,7 +219,7 @@
             </p>            
           </div>
           <div class="testimonial-punch-line-footer"> 
-              <a class="btn btn-danger btn-lg" href="#" role="button" style="background: #946EDB">
+              <a class="btn btn-danger btn-lg" href="{{ route('orders.create') }}" role="button" style="background: #946EDB">
                 Get Your Quote Now
               </a>   
           </div>
@@ -232,36 +232,39 @@
       </div>
     </div>      
     </div>
-    <div class="support">
-      <div class="row no-gutter">
-        <div class="col-sm"> 
-          <div class="support-image">        
-          </div>          
-        </div>
-        <div class="col-sm">
-          <div class="support-punch-line">
+    @include('includes.creative')
+    <div class="support support-image">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col">
+           <div class="support-punch-line">
             <div class="support-punch-line-header">
-              <h3>24/7 Expert Support</h3>
+              <h1>24/7 Expert Support</h1>
             </div>
             <div class="support-punch-line-content">
               <p>
                 Our in-house, expert team is always on hand to help answer your questions, get you started, and grow your presence online. You can call, chat or email us any time!
               </p>              
             </div>
-            <div class="support-punch-line-footer">              
-            </div>
+            <div class="row d-flex justify-content-center">
+           <a class="btn btn-lg btn-info" style="background: #28A745" href="{{ route('orders.create') }}">Get started Now</a>
+         </div>
           </div>
+        
+      
         </div>
       </div>
+         
       <div class="row no-gutter">
         <div class="support-base">
           
         </div>
       </div>           
     </div>
+    
     @include('includes.footer')
    
-</div>
+
     @include('includes.js.cost_calculator') 
     @include('includes.js.typed')
 @endsection

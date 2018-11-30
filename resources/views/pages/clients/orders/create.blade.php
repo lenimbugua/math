@@ -1,9 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-   <div style="color: #9C27B0" class="badge badge-warning price-badge font-weight-bold d-flex justify-content-center">
-   	<div class="row mb-2"><h6 class="">Cost</h6></div>
-   	<div class="row mt-3" id="totalcost" onclick="displayCost()" >$19.00</div>
+   <div  class="badge price-badge  d-flex justify-content-center">
+   	<div class="price-text  d-flex justify-content-center font-weight-bold font3 ">
+   		<div style="color: #9C27B0" class="row mb-2"><h6 class="">Cost</h6></div>
+   	    <div style="color: #9C27B0" class="row mt-3" id="totalcost" >$19.00</div>
+   	</div>
+   	
    </div>
     
          
